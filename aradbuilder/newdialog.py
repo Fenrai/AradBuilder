@@ -1,5 +1,5 @@
 from PyQt4.QtCore import (pyqtSlot)
-from PyQt4.QtGui import (QDialog, QFileDialog, QPixmap, QMessageBox, QIcon)
+from PyQt4.QtGui import (QDialog, QFileDialog, QPixmap, QMessageBox)
 
 from pyui.NewChar_ui import Ui_NewCharacter as NewCharUI
 
@@ -19,8 +19,6 @@ class NewDialog(QDialog, NewCharUI):
         self.comboClass.addItems(classParser.sections())
         self._subClasses = self.extractSubclasses(classParser)
         self._imageDirectory = ''
-        self.pushButtonOK.setIcon(QIcon(os.path.join('classes'
-                                                    'CreateCharacter.png')))
         self.updatePath()
         self.updateSubClassCombo()
         self.updateMainClassPictures()
@@ -50,7 +48,7 @@ class NewDialog(QDialog, NewCharUI):
         self.comboSubClass.currentIndexChanged.connect(self.updateCharacterPicture)
         self.toolButtonCustomPath.clicked.connect(self.editCustomPicturePath)
         self.lineEditCustomPicture.textChanged.connect(self.updateCharacterPicture)
-        self.pushButtonOK.clicked.connect(self.checkAccept)
+        self.pushButtonCreate.clicked.connect(self.checkAccept)
 
     @pyqtSlot()
     def editCustomPicturePath(self):

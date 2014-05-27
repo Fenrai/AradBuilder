@@ -1,0 +1,143 @@
+.
+├── Fighter (F)
+│   ├── Brawler
+│   ├── Common
+│   ├── Grappler
+│   ├── Nen Master
+│   ├── SP_Bralwer.abs
+│   ├── SP_Common.abs
+│   ├── SP_Grappler.abs
+│   ├── SP_Nen Master.abs
+│   ├── SP_Striker.abs
+│   ├── Striker
+│   ├── TP_Bralwer.abs
+│   ├── TP_Common.abs
+│   ├── TP_Grappler.abs
+│   ├── TP_Nen Master.abs
+│   └── TP_Striker.abs
+├── Fighter (M)
+│   ├── Brawler
+│   ├── Common
+│   ├── Grappler
+│   ├── Nen Master
+│   ├── SP_Bralwer.abs
+│   ├── SP_Common.abs
+│   ├── SP_Grappler.abs
+│   ├── SP_Nen Master.abs
+│   ├── SP_Striker.abs
+│   ├── Striker
+│   ├── TP_Bralwer.abs
+│   ├── TP_Common.abs
+│   ├── TP_Grappler.abs
+│   ├── TP_Nen Master.abs
+│   └── TP_Striker.abs
+├── General
+│   ├── QP
+│   ├── QP.abs
+│   ├── SP
+│   ├── SP.abs
+│   ├── TP
+│   └── TP.abs
+├── Gunner (F)
+│   ├── Common
+│   ├── Launcher
+│   ├── Mechanic
+│   ├── Ranger
+│   ├── SP_Common.abs
+│   ├── Spitfire
+│   ├── SP_Launcher.abs
+│   ├── SP_Mechanic.abs
+│   ├── SP_Ranger.abs
+│   ├── SP_Spitfire.abs
+│   ├── TP_Common.abs
+│   ├── TP_Launcher.abs
+│   ├── TP_Mechanic.abs
+│   ├── TP_Ranger.abs
+│   └── TP_Spitfire.abs
+├── Gunner (M)
+│   ├── Common
+│   ├── Launcher
+│   ├── Mechanic
+│   ├── Ranger
+│   ├── SP_Common.abs
+│   ├── Spitfire
+│   ├── SP_Launcher.abs
+│   ├── SP_Mechanic.abs
+│   ├── SP_Ranger.abs
+│   ├── SP_Spitfire.abs
+│   ├── TP_Common.abs
+│   ├── TP_Launcher.abs
+│   ├── TP_Mechanic.abs
+│   ├── TP_Ranger.abs
+│   └── TP_Spitfire.abs
+├── Mage (F)
+│   ├── Battlemage
+│   ├── Common
+│   ├── Elementalist
+│   ├── SP_Battlemage.abs
+│   ├── SP_Common.abs
+│   ├── SP_Elementalist.abs
+│   ├── SP_Summoner.abs
+│   ├── SP_Witch.abs
+│   ├── Summoner
+│   ├── TP_Battlemage.abs
+│   ├── TP_Common.abs
+│   ├── TP_Elementalist.abs
+│   ├── TP_Summoner.abs
+│   ├── TP_Witch.abs
+│   └── Witch
+├── Mage (M)
+│   ├── Common
+│   ├── Elemental Bomber
+│   ├── Glacial Master
+│   ├── SP_Common.abs
+│   ├── SP_Elemental Bomber.abs
+│   ├── SP_Glacial Master.abs
+│   ├── TP_Common.abs
+│   ├── TP_Elemental Bomber.abs
+│   └── TP_Glacial Master.abs
+├── Priest
+│   ├── Avenger
+│   ├── Common
+│   ├── Crusader
+│   ├── Exorcist
+│   ├── Monk
+│   ├── SP_Avenger.abs
+│   ├── SP_Common.abs
+│   ├── SP_Crusader.abs
+│   ├── SP_Exorcist.abs
+│   ├── SP_Monk.abs
+│   ├── TP_Avenger.abs
+│   ├── TP_Common.abs
+│   ├── TP_Crusader.abs
+│   ├── TP_Exorcist.abs
+│   └── TP_Monk.abs
+├── Slayer
+│   ├── Asura
+│   ├── Berserker
+│   ├── Blade Master
+│   ├── Common
+│   ├── Soulbender
+│   ├── SP_Asura.abs
+│   ├── SP_Berserker.abs
+│   ├── SP_Blade Master.abs
+│   ├── SP_Common.abs
+│   ├── SP_Soulbender.abs
+│   ├── TP_Asura.abs
+│   ├── TP_Berserker.abs
+│   ├── TP_Blade Master.abs
+│   ├── TP_Common.abs
+│   └── TP_Soulbender.abs
+├── Thief
+│   ├── Common
+│   ├── Necromancer
+│   ├── Rogue
+│   ├── SP_Common.abs
+│   ├── SP_Necromancer.abs
+│   ├── SP_Rogue.abs
+│   ├── TP_Common.abs
+│   ├── TP_Necromancer.abs
+│   └── TP_Rogue.abs
+└── tree
+
+54 directories, 86 files
