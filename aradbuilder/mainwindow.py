@@ -17,14 +17,16 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+import ConfigParser
+import os
+
 from PyQt4.QtCore import (pyqtSlot)
 from PyQt4.QtGui import (QMainWindow, QApplication, QListWidgetItem)
 
-from pyui.MainWindow_ui import Ui_MainWindow as MainWindowUI
-import ConfigParser
-import newdialog
 import build
-import os
+import newdialog
+from pyui.MainWindow_ui import Ui_MainWindow as MainWindowUI
+
 
 def launchGui(argv=None):
     if argv is None:
@@ -50,7 +52,8 @@ class MainWindow(QMainWindow, MainWindowUI):
         self.dictTP = self.getPointsDict('TP')
 
     def createConnections(self):
-        self.actionAdd.triggered.connect(self.createNewChar)
+        self.actionAdd.triggered.connect(self.getNewCharValues)
+        self.actionSave.triggered.connect(self.saveBuilds)
 
     def getPointsDict(self, key):
         pDict = {}
@@ -65,8 +68,25 @@ class MainWindow(QMainWindow, MainWindowUI):
 
         return pDict
 
+    def createNewChar(self, name, mainClass, subClass, path):
+        charBuild = build.Build(name, mainClass, subClass, path, self)
+
+        self.stackedBuilds.addWidget(charBuild)
+        self.listBuilds.addItem(QListWidgetItem(name))
+
+        self.listBuilds.setCurrentRow(self.listBuilds.count() - 1)
+        charBuild.nameChanged.connect(self.updateListName)
+
+    def nameInList(self, name):
+        return False
+
+    @pyqtSlot(str)
+    def updateListName(self, name):
+        print name
+        self.listBuilds.currentItem().setText(name)
+
     @pyqtSlot()
-    def createNewChar(self):
+    def getNewCharValues(self):
         newDialog = newdialog.NewDialog()
         if newDialog.exec_():
             name = newDialog.lineEditName.text()
@@ -77,13 +97,56 @@ class MainWindow(QMainWindow, MainWindowUI):
                 path = os.path.join("classes", mainClass, subClass + '.png')
             else:
                 path = customPath
+            self.createNewChar(name, mainClass, subClass, path)
 
-            charBuild = build.Build(name, mainClass, subClass, path, self)
 
-            self.stackedBuilds.addWidget(charBuild)
-            self.listBuilds.addItem(QListWidgetItem(name))
 
-            self.listBuilds.setCurrentRow(self.listBuilds.count() - 1)
+
+    @pyqtSlot()
+    def saveBuilds(self):
+        pathSaveParser = ConfigParser.SafeConfigParser()
+        pathSaveParser.add_section('builds')
+
+        for i in range(self.stackedBuilds.count()):
+            saveParser = ConfigParser.SafeConfigParser()
+            build = self.stackedBuilds.widget(i)
+            name = str(build.lineEditName.text())
+            saveParser.add_section('global')
+            saveParser.set('global', 'name', name)
+            saveParser.set('global', 'class', str(build.lineEditClass.text()))
+            saveParser.set('global', 'job', str(build.lineEditSubClass.text()))
+            saveParser.set('global', 'level', str(build.spinBoxLevel.value()))
+
+            saveParser.add_section('SP')
+            saveParser.add_section('TP')
+            saveParser.add_section('QP')
+            for skillBox in build.spDict.values():
+                for skill in skillBox.skills.values():
+                    if skill.spinBoxLevel.value() > 0:
+                        saveParser.set('SP', skill.name,
+                                       str(skill.spinBoxLevel.value()))
+            for skillBox in build.tpDict.values():
+                for skill in skillBox.skills.values():
+                    if skill.spinBoxLevel.value() > 0:
+                        saveParser.set('TP', skill.name,
+                                       str(skill.spinBoxLevel.value()))
+            for skillBox in build.qpDict.values():
+                for skill in skillBox.skills.values():
+                    if skill.spinBoxLevel.value() > 0:
+                        saveParser.set('QP', skill.name,
+                                       str(skill.spinBoxLevel.value()))
+
+            path = os.path.join('saves', name + '.absf')
+
+            with open(path, 'w') as f:
+                saveParser.write(f)
+
+            pathSaveParser.set('builds', name, path)
+
+        path = os.path.join('saves', 'default.abpf')
+        with open(path, 'w') as f:
+            pathSaveParser.write(f)
+
 
 if __name__ == '__main__':
     import sys

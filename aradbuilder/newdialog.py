@@ -1,18 +1,20 @@
-from PyQt4.QtCore import (pyqtSlot)
-from PyQt4.QtGui import (QDialog, QFileDialog, QPixmap, QMessageBox)
-
-from pyui.NewChar_ui import Ui_NewCharacter as NewCharUI
-
 import ConfigParser
 import os
 
-global paths
+from PyQt4.QtCore import pyqtSlot
+from PyQt4.QtGui import QDialog, QFileDialog, QPixmap, QMessageBox, QMovie
+
+import paths
+from pyui.NewChar_ui import Ui_NewCharacter as NewCharUI
+
 
 class NewDialog(QDialog, NewCharUI):
 
     def __init__(self, parent=None):
         super(NewDialog, self).__init__(parent)
         self.setupUi(self)
+
+        self.lineEditName.setText('testChar')
 
         classParser = ConfigParser.SafeConfigParser()
         classParser.read(os.path.join('classes', 'classes.abc'))
@@ -22,11 +24,11 @@ class NewDialog(QDialog, NewCharUI):
         self.updatePath()
         self.updateSubClassCombo()
         self.updateMainClassPictures()
-        self.updateCharacterPicture()
+        self.updateSubClassPictures()
 
         self.createConnections()
 
-        print paths.getPicturePath('char', 'Gunner (F)')
+#         print paths.getPicturePath('char', 'Gunner (F)')
 
     def extractSubclasses(self, classParser):
         subclassDict = {}
@@ -45,16 +47,15 @@ class NewDialog(QDialog, NewCharUI):
         self.comboClass.currentIndexChanged.connect(self.updatePath)
         self.comboClass.currentIndexChanged.connect(self.updateSubClassCombo)
         self.comboClass.currentIndexChanged.connect(self.updateMainClassPictures)
-        self.comboSubClass.currentIndexChanged.connect(self.updateCharacterPicture)
+        self.comboSubClass.currentIndexChanged.connect(self.updateSubClassPictures)
         self.toolButtonCustomPath.clicked.connect(self.editCustomPicturePath)
-        self.lineEditCustomPicture.textChanged.connect(self.updateCharacterPicture)
+        self.lineEditCustomPicture.textChanged.connect(self.updateSubClassPictures)
         self.pushButtonCreate.clicked.connect(self.checkAccept)
 
     @pyqtSlot()
     def editCustomPicturePath(self):
         path = QFileDialog.getOpenFileName(caption='Path to your picture',
-                                            filter='*.png *.jpg *.bmp')
-
+                                            filter='*.png *.jpg *.bmp *.gif')
         self.lineEditCustomPicture.setText(path)
 
     @pyqtSlot()
@@ -76,16 +77,24 @@ class NewDialog(QDialog, NewCharUI):
         self.labelClassName.setPixmap(QPixmap(path))
 
     @pyqtSlot()
-    def updateCharacterPicture(self):
+    def updateSubClassPictures(self):
         if self.sender() == self.lineEditCustomPicture \
         and self.lineEditCustomPicture.text() != '':
-            path = self.lineEditCustomPicture.text()
-            self.labelCharPicture.setPixmap(QPixmap(path))
-        else:
-            if self.lineEditCustomPicture.text() == '':
-                path = os.path.join(self._imageDirectory,
-                                str(self.comboSubClass.currentText()))
+            path = str(self.lineEditCustomPicture.text())
+            if path.endswith('.gif'):
+                gif = QMovie(path)
+                self.labelCharPicture.setMovie(gif)
+                gif.start()
+            else:
                 self.labelCharPicture.setPixmap(QPixmap(path))
+        else:
+            path = os.path.join(self._imageDirectory,
+                                 str(self.comboSubClass.currentText()))
+            subTitle = QMovie(path + '.gif')
+            self.labelSubClass.setMovie(subTitle)
+            subTitle.start()
+            if self.lineEditCustomPicture.text() == '':
+                self.labelCharPicture.setPixmap(QPixmap(path + '.png'))
 
     @pyqtSlot()
     def checkAccept(self):

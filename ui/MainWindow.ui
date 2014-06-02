@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QListWidget" name="listWidget">
+     <widget class="QListWidget" name="listBuilds">
       <property name="minimumSize">
        <size>
         <width>150</width>
@@ -32,10 +32,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QStackedWidget" name="stackedWidget">
-      <widget class="QWidget" name="page"/>
-      <widget class="QWidget" name="page_2"/>
-     </widget>
+     <widget class="QStackedWidget" name="stackedBuilds"/>
     </item>
    </layout>
   </widget>
@@ -45,7 +42,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>29</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -148,5 +145,22 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>listBuilds</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>stackedBuilds</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>240</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

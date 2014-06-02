@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>94</width>
-    <height>155</height>
+    <width>82</width>
+    <height>101</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,51 +18,51 @@
   </property>
   <layout class="QHBoxLayout" name="mainLayout">
    <property name="spacing">
-    <number>0</number>
+    <number>3</number>
    </property>
    <property name="leftMargin">
-    <number>0</number>
+    <number>6</number>
    </property>
    <property name="topMargin">
     <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>0</number>
+    <number>6</number>
    </property>
    <property name="bottomMargin">
     <number>6</number>
    </property>
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
+     <item row="0" column="0" alignment="Qt::AlignVCenter">
       <widget class="QLabel" name="label">
        <property name="text">
         <string>Skill:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="1" column="0" alignment="Qt::AlignVCenter">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>MaxLevel:</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
+     <item row="2" column="0" alignment="Qt::AlignVCenter">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Level:</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="3" column="0" alignment="Qt::AlignVCenter">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Cost:</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
+     <item row="4" column="0" alignment="Qt::AlignVCenter">
       <widget class="QLabel" name="label_5">
        <property name="text">
         <string>Total:</string>

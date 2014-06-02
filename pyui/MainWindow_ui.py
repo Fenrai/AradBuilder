@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui\MainWindow.ui'
 #
-# Created: Tue May 27 22:33:16 2014
+# Created: Mon Jun 02 01:08:13 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,23 +31,17 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.listWidget = QtGui.QListWidget(self.centralwidget)
-        self.listWidget.setMinimumSize(QtCore.QSize(150, 0))
-        self.listWidget.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.listWidget.setObjectName(_fromUtf8("listWidget"))
-        self.gridLayout.addWidget(self.listWidget, 0, 0, 1, 1)
-        self.stackedWidget = QtGui.QStackedWidget(self.centralwidget)
-        self.stackedWidget.setObjectName(_fromUtf8("stackedWidget"))
-        self.page = QtGui.QWidget()
-        self.page.setObjectName(_fromUtf8("page"))
-        self.stackedWidget.addWidget(self.page)
-        self.page_2 = QtGui.QWidget()
-        self.page_2.setObjectName(_fromUtf8("page_2"))
-        self.stackedWidget.addWidget(self.page_2)
-        self.gridLayout.addWidget(self.stackedWidget, 0, 1, 1, 1)
+        self.listBuilds = QtGui.QListWidget(self.centralwidget)
+        self.listBuilds.setMinimumSize(QtCore.QSize(150, 0))
+        self.listBuilds.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.listBuilds.setObjectName(_fromUtf8("listBuilds"))
+        self.gridLayout.addWidget(self.listBuilds, 0, 0, 1, 1)
+        self.stackedBuilds = QtGui.QStackedWidget(self.centralwidget)
+        self.stackedBuilds.setObjectName(_fromUtf8("stackedBuilds"))
+        self.gridLayout.addWidget(self.stackedBuilds, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 29))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
@@ -91,6 +85,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
+        QtCore.QObject.connect(self.listBuilds, QtCore.SIGNAL(_fromUtf8("currentRowChanged(int)")), self.stackedBuilds.setCurrentIndex)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

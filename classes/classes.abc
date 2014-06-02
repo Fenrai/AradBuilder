@@ -1,0 +1,53 @@
+[Slayer]
+sub1 = Asura
+sub2 = Berserker
+sub3 = Blade Master
+sub4 = Soulbender
+
+[Fighter (F)]
+sub1 = Grappler
+sub2 = Nen Master
+sub3 = Brawler
+sub4 = Striker
+
+[Fighter (M)]
+sub1 = Grappler
+sub2 = Nen Master
+sub3 = Brawler
+sub4 = Striker
+
+[Gunner (F)]
+sub1 = Launcher
+sub2 = Mechanic
+sub3 = Ranger
+sub4 = Spitfire
+
+[Gunner (M)]
+sub1 = Launcher
+sub2 = Mechanic
+sub3 = Ranger
+sub4 = Spitfire
+
+[Mage (F)]
+sub1 = Battlemage
+sub2 = Elementalist
+sub3 = Summoner
+sub4 = Witch
+
+[Mage (M)]
+sub1 = Elemental Bomber
+sub2 = Glacial Master
+sub3 =
+sub4 =
+
+[Priest]
+sub1 = Avenger
+sub2 = Crusader
+sub3 = Exorcist
+sub4 = Monk
+
+[Thief]
+sub1 = Necromancer
+sub2 = Rogue
+sub3 =
+sub4 =

@@ -17,15 +17,28 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+# import os
 import sys
+
 import aradbuilder.mainwindow as GUI
+# import aradbuilder.paths as paths
+
 
 def main (argv=None):
     if argv is None:
         argv = sys.argv
 
-    GUI.launchGui(argv)
+#     p = paths.Paths()
+#     print 'charpictures'
+#     print p.charPicturePaths
+#     print 'skillpictures'
+#     print p.skillPicturePaths
+#     print 'skillfiles'
+#     print p.skillFilePaths
+#
+#     print os.path.join(p.getSPicPath('General', 'SP'), '0.png')
 
+    GUI.launchGui(argv)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui\SkillBox.ui'
 #
-# Created: Tue May 27 22:34:54 2014
+# Created: Fri May 30 22:27:54 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,29 +26,29 @@ except AttributeError:
 class Ui_SkillBox(object):
     def setupUi(self, SkillBox):
         SkillBox.setObjectName(_fromUtf8("SkillBox"))
-        SkillBox.resize(94, 155)
+        SkillBox.resize(82, 101)
         SkillBox.setTitle(_fromUtf8(""))
         self.mainLayout = QtGui.QHBoxLayout(SkillBox)
-        self.mainLayout.setSpacing(0)
-        self.mainLayout.setContentsMargins(0, 0, 0, 6)
+        self.mainLayout.setSpacing(3)
+        self.mainLayout.setContentsMargins(6, 0, 6, 6)
         self.mainLayout.setObjectName(_fromUtf8("mainLayout"))
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.label = QtGui.QLabel(SkillBox)
         self.label.setObjectName(_fromUtf8("label"))
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1, QtCore.Qt.AlignVCenter)
         self.label_2 = QtGui.QLabel(SkillBox)
         self.label_2.setObjectName(_fromUtf8("label_2"))
-        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1, QtCore.Qt.AlignVCenter)
         self.label_3 = QtGui.QLabel(SkillBox)
         self.label_3.setObjectName(_fromUtf8("label_3"))
-        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1, QtCore.Qt.AlignVCenter)
         self.label_4 = QtGui.QLabel(SkillBox)
         self.label_4.setObjectName(_fromUtf8("label_4"))
-        self.gridLayout.addWidget(self.label_4, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_4, 3, 0, 1, 1, QtCore.Qt.AlignVCenter)
         self.label_5 = QtGui.QLabel(SkillBox)
         self.label_5.setObjectName(_fromUtf8("label_5"))
-        self.gridLayout.addWidget(self.label_5, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_5, 4, 0, 1, 1, QtCore.Qt.AlignVCenter)
         self.mainLayout.addLayout(self.gridLayout)
 
         self.retranslateUi(SkillBox)

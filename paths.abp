@@ -1,0 +1,30 @@
+[classes]
+base = classes
+Fighter (F) = Fighter (F)
+Fighter (M) = Fighter (M)
+Gunner (F) = Gunner (F)
+Gunner (M) = Gunner (M)
+Mage (F) = Mage (F)
+Mage (M) = Mage (M)
+Priest = Priest
+Slayer = Slayer
+Thief = Thief
+
+
+[skills]
+base = skills
+Fighter (F) = Fighter (F)
+Fighter (F).Common =
+Fighter (F).Brawler =
+Fighter (F).Grappler =
+Fighter (F).Nen Master =
+Fighter (F).Striker =
+Fighter (M) = Fighter (M)
+Gunner (F) = Gunner (F)
+Gunner (M) = Gunner (M)
+Mage (F) = Mage (F)
+Mage (M) = Mage (M)
+Priest = Priest
+Slayer = Slayer
+Thief = Thief
+

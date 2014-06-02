@@ -1,0 +1,109 @@
+;[]
+;start = 
+;max = 
+;cost1 = 
+;cost = 
+;interval = 
+;active = .png
+;inactive = .png
+;requirements = {}
+;desc = 
+
+[Cancel - Item Throw]
+start = 20
+max = 1
+cost1 = 50
+cost = 0
+interval = 1
+active = 4.png
+inactive = 5.png
+requirements = {}
+desc = Cancels normal attacks, then immediately uses a Throw item.
+
+[Leap]
+start = 10
+max = 10
+cost1 = 20
+cost = 20
+interval = 3
+active = 6.png
+inactive = 7.png
+requirements = {}
+desc = Increases your Jumping Strength for a set duration.
+
+[Indomitable Spirit]
+start = 15
+max = 10
+cost1 = 25
+cost = 25
+interval = 3
+active = 20.png
+inactive = 21.png
+requirements = {}
+desc = Casts a skill with the chance to cancel the enemy's attack; cannot be dispelled for a set duration.
+
+[Ancien Memory]
+start = 15
+max = 10
+cost1 = 25
+cost = 25
+interval = 3
+active = 8.png
+inactive = 9.png
+requirements = {}
+desc = Increases your Intelligence for a set duration.
+
+[Physical Critical Hit]
+start = 20
+max = 10
+cost1 = 20
+cost = 20
+interval = 3
+active = 34.png
+inactive = 35.png
+requirements = {}
+desc = Increases your Physical Critical Hit Rate.
+
+[Physical Rear Attack]
+start = 20
+max = 10
+cost1 = 20
+cost = 20
+interval = 3
+active = 12.png
+inactive = 13.png
+requirements = {}
+desc = Increases your Physical Critical Hit Rate while attacking from behind.
+
+[Magic Critical Hit]
+start = 20
+max = 10
+cost1 = 20
+cost = 20
+interval = 3
+active = 38.png
+inactive = 39.png
+requirements = {}
+desc = Increase your Magical Critical Hit Rate.
+
+[Magic Rear Attack]
+start = 20
+max = 10
+cost1 = 20
+cost = 20
+interval = 3
+active = 40.png
+inactive = 41.png
+requirements = {}
+desc = Increases your Magical Critical Hit Rate when casting from behind.
+
+[Quick Rebound]
+start = 1
+max = 1
+cost1 = 10
+cost = 10
+interval = 1 
+active = 46.png
+inactive = 47.png
+requirements = {}
+desc = Enables your character to quickly rebound up to a sitting position after getting knocked down, ignoring the enemy's attacks, to seek an opportunity to counterattack.
