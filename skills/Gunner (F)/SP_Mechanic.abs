@@ -1,0 +1,142 @@
+;[]
+;start = 
+;max = 
+;cost1 = 
+;cost = 
+;interval = 
+;active = .png
+;inactive = .png
+;requirements = {}
+;desc = 
+
+[Ez-8 Time Bomb]
+start = 20
+max = 30
+cost1 = 20
+cost = 20
+interval = 2
+active = .png
+inactive = .png
+requirements = {'RX-78 Land Runner':1}
+desc = Plants Ex-8 Time Bomb, stationary self-exploding robots. Robots will detonate after a set amount of time, dealing Fire Element damage to nearby enemies. Holding down the skill hotkey will charge the skill. Longer charge means longer explosion delays. Deals 125% more damage to buildings.
+
+[Robotics]
+start = 20
+max = 20
+cost1 = 0
+cost = 20
+interval = 3
+active = .png
+inactive = .png
+requirements = {}
+desc = For 20 seconds, power up all the remaining robots on the field as well as any newly summoned robots.
+
+[Backup Land Runner]
+start = 20
+max = 10
+cost1 = 25
+cost = 25
+interval = 3
+active = .png
+inactive = .png
+requirements = {'RX-78 Land Runner':5}
+desc = Allows you to summon a Land Runner by being hit, at a certain rate.
+
+[Detonation]
+start = 20
+max = 10
+cost1 = 25
+cost = 25
+interval = 3
+active = .png
+inactive = .png
+requirements = {}
+desc = Forcefully cause all nearby Land Runner and Ez-8 Time Bomb to self destruct. Holding the skill key allows the user to mark down the point, which commands all nearby self destruct mechas--Land Runner, Ez-8 Time Bomb, Tempester, Sparrow--to move to that point and then explode.
+
+[Camouflage]
+start = 30
+max = 10
+cost1 = 30
+cost = 30
+interval = 3
+active = .png
+inactive = .png
+requirements = {}
+desc = Camouflage all allies within 500px radius, remaining invisible to all foes for limited time.
+
+[EX-S Viper]
+start = 
+max = 
+cost1 = 
+cost = 
+interval = 
+active = .png
+inactive = .png
+requirements = {}
+desc = 
+
+[Air Combat Mech Gale Force]
+start = 
+max = 
+cost1 = 
+cost = 
+interval = 
+active = .png
+inactive = .png
+requirements = {}
+desc = 
+
+[Mech Drop]
+start = 
+max = 
+cost1 = 
+cost = 
+interval = 
+active = .png
+inactive = .png
+requirements = {}
+desc = 
+
+[G-1 Corona]
+start = 
+max = 
+cost1 = 
+cost = 
+interval = 
+active = .png
+inactive = .png
+requirements = {}
+desc = 
+
+[G-2 Rolling Thunder]
+start = 
+max = 
+cost1 = 
+cost = 
+interval = 
+active = .png
+inactive = .png
+requirements = {}
+desc = 
+
+[G-3 Raptor]
+start = 
+max = 
+cost1 = 
+cost = 
+interval = 
+active = .png
+inactive = .png
+requirements = {}
+desc = 
+
+[Sparrow Factory]
+start = 
+max = 
+cost1 = 
+cost = 
+interval = 
+active = .png
+inactive = .png
+requirements = {}
+desc = 

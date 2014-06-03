@@ -21,7 +21,7 @@ class Build(QWidget, BuildUi):
         self.lineEditSubClass.setText(subClass)
         self.spinBoxLevel.lineEdit().setReadOnly(True)
         self.labelCharPicture.setPixmap(QPixmap(path))
-        self.updateTotalPoints(self.spinBoxLevel.value() - 1)
+        self.updateTotalPoints(self.spinBoxLevel.value())
 
         self.createObjects()
         self.fillSpTab()
@@ -30,6 +30,7 @@ class Build(QWidget, BuildUi):
         self.fillQuestTab()
         self.fillSkillTreeTab()
         self.createConnections()
+        self.connectRequiredSkills()
 
 
     def createObjects(self):
@@ -48,8 +49,6 @@ class Build(QWidget, BuildUi):
         self.spinBoxQpUsed.valueChanged.connect(self.updateRemainingQP)
         for skillBox in self.spDict.values():
             for skill in skillBox.skills.values():
-                if skill.requirements != {}:
-                    skill.updateRequirements.connect(self.setRequirements)
                 self.spinBoxLevel.valueChanged.connect(skill.updateMax)
 
     def fillSpTab(self):
@@ -57,7 +56,7 @@ class Build(QWidget, BuildUi):
         spLayout = QVBoxLayout()
 
         generalBox = SkillBox('General', 'SP', 'General', 'SP')
-        commonBox = SkillBox('Common', 'SP', self.mainClass, self.subClass)
+        commonBox = SkillBox('Common', 'SP', self.mainClass, 'Common')
         classBox = SkillBox('Class', 'SP', self.mainClass, self.subClass)
 
         spLayout.addLayout(self.getLayout(generalBox))
@@ -146,8 +145,18 @@ class Build(QWidget, BuildUi):
                         self.qpDict.values():
             if name in skillBox.skills.keys():
                 return skillBox.skills[name]
+        print name + ' not found'
         return None
 
+    def connectRequiredSkills(self):
+        for skillBox in self.spDict.values() + \
+                        self.tpDict.values() + \
+                        self.qpDict.values():
+            for skill in skillBox.skills.values():
+                for name in skill.req:
+                    req = self.findSkillByName(name)
+                    req.dependants.setdefault(skill.req[name], []).append(skill)
+                    skill.requirements[req] = skill.req[name]
     @pyqtSlot(int)
     def updateTotalPoints(self, level):
         self.spinBoxTpTotal.setValue(self._mainWindow.dictTP[level])
@@ -196,15 +205,5 @@ class Build(QWidget, BuildUi):
     @pyqtSlot()
     def updateName(self):
         self.nameChanged.emit(str(self.lineEditName.text()))
-
-    @pyqtSlot(dict)
-    def setRequirements(self, rDict):
-        print rDict
-        print self.spDict['General'].skills['Leap']
-        self.spDict['General'].skills['Leap'].spinBoxLevel.setValue(10)
-        for name in rDict.keys():
-            print type(rDict[name])
-            print self.findSkillByName(name)
-            self.findSkillByName(name).spinBoxLevel.setValue(5)
 
 

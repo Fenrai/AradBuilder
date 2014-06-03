@@ -99,9 +99,6 @@ class MainWindow(QMainWindow, MainWindowUI):
                 path = customPath
             self.createNewChar(name, mainClass, subClass, path)
 
-
-
-
     @pyqtSlot()
     def saveBuilds(self):
         pathSaveParser = ConfigParser.SafeConfigParser()

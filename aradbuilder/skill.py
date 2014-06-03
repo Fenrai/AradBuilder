@@ -9,7 +9,7 @@ from pyui.Skill_ui import Ui_Skill as SkillUi
 
 class Skill(QWidget, SkillUi):
     totalChanged = pyqtSignal()
-    updateRequirements = pyqtSignal(dict)
+    updateRequirements = pyqtSignal(int)
 
     def __init__(self, name, skillParser, picDir, parent=None):
         super(Skill, self).__init__(parent)
@@ -33,8 +33,9 @@ class Skill(QWidget, SkillUi):
                                            skillParser.get(self.name, 'active')))
         self.inactive = QPixmap(os.path.join(picDir,
                                              skillParser.get(self.name, 'inactive')))
-        self.requirements = ast.literal_eval(skillParser.get(self.name,
-                                                             'requirements'))
+        self.req = ast.literal_eval(skillParser.get(self.name, 'requirements'))
+        self.dependants = {}
+        self.requirements = {}
 
     def setValues(self):
         self.spinBoxMax.setValue(self.max)
@@ -47,6 +48,7 @@ class Skill(QWidget, SkillUi):
         self.spinBoxMax.valueChanged.connect(self.updatePicture)
         self.spinBoxLevel.valueChanged.connect(self.updateTotal)
         self.spinBoxLevel.valueChanged.connect(self.updateCost)
+        self.spinBoxLevel.valueChanged.connect(self.updateDependants)
 
     @pyqtSlot()
     def updatePicture(self):
@@ -58,7 +60,8 @@ class Skill(QWidget, SkillUi):
     @pyqtSlot()
     def updateTotal(self):
         if self.spinBoxTotal.value() == 0:
-            self.updateRequirements.emit(self.requirements)
+            for skill in self.requirements.keys():
+                skill.setRequirement(self.requirements[skill])
         if self.spinBoxLevel.value() > 0:
             total = (self.spinBoxLevel.value() - 1) * self.cost + self.cost1
         else:
@@ -74,6 +77,13 @@ class Skill(QWidget, SkillUi):
         else:
             self.spinBoxCost.setValue(self.cost)
 
+    @pyqtSlot()
+    def updateDependants(self):
+        for entry in self.dependants.keys():
+            if entry > self.spinBoxLevel.value():
+                for dependant in self.dependants[entry]:
+                    dependant.spinBoxLevel.setValue(0)
+
     @pyqtSlot(int)
     def updateMax(self, level):
         if level < self.start:
@@ -86,4 +96,6 @@ class Skill(QWidget, SkillUi):
 
         self.spinBoxMax.setValue(maximum)
 
-
+    @pyqtSlot(int)
+    def setRequirement(self, level):
+        self.spinBoxLevel.setValue(max(level, self.spinBoxLevel.value()))
