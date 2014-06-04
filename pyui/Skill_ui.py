@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/Skill.ui'
+# Form implementation generated from reading ui file 'ui\Skill.ui'
 #
-# Created: Tue Jun  3 13:54:45 2014
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Tue Jun 03 23:16:55 2014
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,12 +12,21 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_Skill(object):
     def setupUi(self, Skill):
         Skill.setObjectName(_fromUtf8("Skill"))
-        Skill.resize(94, 184)
+        Skill.resize(94, 165)
         self.gridLayout = QtGui.QGridLayout(Skill)
         self.gridLayout.setContentsMargins(2, 0, 2, 0)
         self.gridLayout.setHorizontalSpacing(0)
@@ -65,7 +74,7 @@ class Ui_Skill(object):
         self.labelPic.setText(_fromUtf8(""))
         self.labelPic.setAlignment(QtCore.Qt.AlignCenter)
         self.labelPic.setObjectName(_fromUtf8("labelPic"))
-        self.gridLayout.addWidget(self.labelPic, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelPic, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.spinBoxCost = QtGui.QSpinBox(Skill)
         self.spinBoxCost.setEnabled(True)
         self.spinBoxCost.setMinimumSize(QtCore.QSize(40, 25))
@@ -100,9 +109,19 @@ class Ui_Skill(object):
         QtCore.QMetaObject.connectSlotsByName(Skill)
 
     def retranslateUi(self, Skill):
-        Skill.setWindowTitle(QtGui.QApplication.translate("Skill", "Skill", None, QtGui.QApplication.UnicodeUTF8))
-        self.spinBoxMax.setToolTip(QtGui.QApplication.translate("Skill", "The higherst level for the current char level.", None, QtGui.QApplication.UnicodeUTF8))
-        self.spinBoxLevel.setToolTip(QtGui.QApplication.translate("Skill", "The currently set level.", None, QtGui.QApplication.UnicodeUTF8))
-        self.spinBoxCost.setStatusTip(QtGui.QApplication.translate("Skill", "The cost for the next level up.", None, QtGui.QApplication.UnicodeUTF8))
-        self.spinBoxTotal.setToolTip(QtGui.QApplication.translate("Skill", "The total amount of SP used for this Skill", None, QtGui.QApplication.UnicodeUTF8))
+        Skill.setWindowTitle(_translate("Skill", "Skill", None))
+        self.spinBoxMax.setToolTip(_translate("Skill", "The higherst level for the current char level.", None))
+        self.spinBoxLevel.setToolTip(_translate("Skill", "The currently set level.", None))
+        self.spinBoxCost.setStatusTip(_translate("Skill", "The cost for the next level up.", None))
+        self.spinBoxTotal.setToolTip(_translate("Skill", "The total amount of SP used for this Skill", None))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    Skill = QtGui.QWidget()
+    ui = Ui_Skill()
+    ui.setupUi(Skill)
+    Skill.show()
+    sys.exit(app.exec_())
 

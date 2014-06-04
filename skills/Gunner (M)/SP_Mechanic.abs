@@ -1,0 +1,164 @@
+;[]
+;start = 
+;max = 
+;cost1 = 
+;cost = 
+;interval = 
+;active = .png
+;inactive = .png
+;requirements = {}
+;desc = 
+
+[Ez-8 Time Bomb]
+start = 20
+max = 30
+cost1 = 20
+cost = 20
+interval = 2
+active = 24.png
+inactive = 25.png
+requirements = {'RX-78 Land Runner':1}
+desc = Plants Ex-8 Time Bomb, stationary self-exploding robots. Robots will detonate after a set amount of time, dealing Fire Element damage to nearby enemies. Holding down the skill hotkey will charge the skill. Longer charge means longer explosion delays. Deals 125%% more damage to buildings.
+
+[Robotics]
+start = 20
+max = 20
+cost1 = 0
+cost = 20
+interval = 3
+active = 116.png
+inactive = 117.png
+requirements = {}
+desc = For 20 seconds, power up all the remaining robots on the field as well as any newly summoned robots.
+
+[Backup Land Runner]
+start = 20
+max = 10
+cost1 = 25
+cost = 25
+interval = 3
+active = 108.png
+inactive = 109.png
+requirements = {'RX-78 Land Runner':5}
+desc = Allows you to summon a Land Runner by being hit, at a certain rate.
+
+[Detonation]
+start = 20
+max = 10
+cost1 = 25
+cost = 25
+interval = 3
+active = 128.png
+inactive = 129.png
+requirements = {}
+desc = Forcefully cause all nearby Land Runner and Ez-8 Time Bomb to self destruct. Holding the skill key allows the user to mark down the point, which commands all nearby self destruct mechas--Land Runner, Ez-8 Time Bomb, Tempester, Sparrow--to move to that point and then explode.
+
+[Camouflage]
+start = 30
+max = 10
+cost1 = 30
+cost = 30
+interval = 3
+active = 102.png
+inactive = 103.png
+requirements = {}
+desc = Camouflage all allies within 500px radius, remaining invisible to all foes for limited time.
+
+[EX-S Viper]
+start = 25
+max = 30
+cost1 = 30
+cost = 30
+interval = 2
+active = 40.png
+inactive = 41.png
+requirements = {}
+desc = Installs the turret operating robot EX-S Viper on the field. Viper constantly fires non-elemental shots. Once its duration is over, Viper self explodes on the spot inflicting Fire elemental magical damage. (Fires 5 times for every 0.2 second, and cools down for 1 second.)
+
+[Air Combat Mech Tempester]
+start = 35
+max = 30
+cost1 = 40
+cost = 40
+interval = 2
+active = 148.png
+inactive = 149.png
+requirements = {}
+desc = Assembles the Air Combat Mech Tempester. It travels in mid-air and fires at targets for 15 seconds, then rushes into a nearby target to self-destruct, inflicting Fire elemental magical damage.
+
+[Mech Drop]
+start = 40
+max = 30
+cost1 = 50
+cost = 50
+interval = 2
+active = 130.png
+inactive = 131.png
+requirements = {'RX-78 Land Runner':10}
+desc = Calls for aerial support that drops 20 land runners within an area of 500px. The dropped Raid Land Runners explode immediately dealing fire elemental damage, but on rare occasions some special land runners will survive the drop and act like normal land runners.
+
+[G-1 Corona]
+start = 20
+max = 30
+cost1 = 25
+cost = 25
+interval = 2
+active = 174.png
+inactive = 175.png
+requirements = {}
+desc = Assemble supportive mecha Corona, which provides assist fire from the back. Constantly fires at certain intervals, inflicting light elemental magical damage and longer hit stun time on the target. The user can assemble Thunder or Raptor for complete transformation. Both Thunder and Raptor inflicts more damage as the Corona's skill level rises.
+
+[G-2 Rolling Thunder]
+start = 25
+max = 30
+cost1 = 25
+cost = 25
+interval = 2
+active = 176.png
+inactive = 177.png
+requirements = {'G-1 Corona': 3}
+desc = Transform either Corona or Raptor into Rolling Thunder. Cylindrical objects hover before the user. Once fully charged, they inflict light elemental damage on any collided target. The user can press skill one more time for a light elemental electrical wave attack. Rolling Thunder adds on the remaining duration of either Corona or Raptor. Using either Corona or Raptor skill turns Rolling Thunder back to its corresponding form. Both Corona and Raptor inflict more damage as Rolling Thunder's skill level rises.
+
+[G-3 Raptor]
+start = 30
+max = 30
+cost1 = 40
+cost = 40
+interval = 2
+active = 178.png
+inactive = 179.png
+requirements = {'G-2 Rolling Thunder': 3}
+desc = Transform either Corona or Rolling Thunder into Raptor. Satellites hover above the user. Once the skill key is pressed again, they hover above the targets within the area, inflicting light elemental magical damage. The satellites reload and halt their attacks if their HP is reduced to 0. Raptor adds on the remaining duration of either Corona or Rolling Thunder. Using either Corona or Rolling Thunder skill turns Raptor back to its corresponding form. Both Corona and Rolling Thunder inflict more damage as Raptor's skill level rises.
+
+[Sparrow Factory]
+start = 45
+max = 30
+cost1 = 60
+cost = 60
+interval = 2
+active = 190.png
+inactive = 191.png
+requirements = {'G-3 Raptor': 5}
+desc = Assemble a miniature factory for sparrow. Once produced, sparrow flies around the target and constantly inflict non-elemental magical damage. Sparrows explode on the spot upon Robot Detonation, and manufactured for certain interval should it gets destroyed. Factory itself explodes after the duration or once its HP reaches 0. At that point, all sparrows on the field will disappear along with the factory.
+
+[Final Will]
+start = 48
+max = 20
+cost1 = 0
+cost = 30
+interval = 3
+active = 160.png
+inactive = 161.png
+requirements = {}
+desc = Once the user's HP goes below the required amount, summon a special robot. It sings music to provide morale support to the team, increasing strength and intelligence of the user and all the robots on the field. It explodes once its HP reaches 0, or after 20 seconds.
+
+[Gaebolg Punch]
+start = 48
+max = 20
+cost1 = 50
+cost = 50
+interval = 2
+active = 162.png
+inactive = 163.png
+requirements = {'Air Combat Mech Tempester': 5}
+desc = Assembles a portal and calls forth gigantic mecha for assistance. Lands heavy blow with a metal fist.

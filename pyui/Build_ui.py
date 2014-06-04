@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui\Build.ui'
 #
-# Created: Mon Jun 02 00:14:29 2014
+# Created: Tue Jun 03 23:18:13 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -204,6 +204,7 @@ class Ui_WidgetBuild(object):
         self.spinBoxSpRemaining.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.spinBoxSpRemaining.setReadOnly(True)
         self.spinBoxSpRemaining.setButtonSymbols(QtGui.QAbstractSpinBox.NoButtons)
+        self.spinBoxSpRemaining.setMinimum(-99999)
         self.spinBoxSpRemaining.setMaximum(99999)
         self.spinBoxSpRemaining.setProperty("value", 0)
         self.spinBoxSpRemaining.setObjectName(_fromUtf8("spinBoxSpRemaining"))
@@ -214,6 +215,7 @@ class Ui_WidgetBuild(object):
         self.spinBoxQpRemaining.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.spinBoxQpRemaining.setReadOnly(True)
         self.spinBoxQpRemaining.setButtonSymbols(QtGui.QAbstractSpinBox.NoButtons)
+        self.spinBoxQpRemaining.setMinimum(-99999)
         self.spinBoxQpRemaining.setMaximum(99999)
         self.spinBoxQpRemaining.setProperty("value", 0)
         self.spinBoxQpRemaining.setObjectName(_fromUtf8("spinBoxQpRemaining"))
@@ -224,6 +226,7 @@ class Ui_WidgetBuild(object):
         self.spinBoxTpRemaining.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.spinBoxTpRemaining.setReadOnly(True)
         self.spinBoxTpRemaining.setButtonSymbols(QtGui.QAbstractSpinBox.NoButtons)
+        self.spinBoxTpRemaining.setMinimum(-99999)
         self.spinBoxTpRemaining.setMaximum(99999)
         self.spinBoxTpRemaining.setProperty("value", 0)
         self.spinBoxTpRemaining.setObjectName(_fromUtf8("spinBoxTpRemaining"))
@@ -265,7 +268,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaQP.setWidgetResizable(True)
         self.scrollAreaQP.setObjectName(_fromUtf8("scrollAreaQP"))
         self.scrollAreaWidgetContents_3 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 778, 357))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
         self.scrollAreaQP.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_6.addWidget(self.scrollAreaQP, 0, 0, 1, 1)
@@ -281,7 +284,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaTP.setWidgetResizable(True)
         self.scrollAreaTP.setObjectName(_fromUtf8("scrollAreaTP"))
         self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 778, 357))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
         self.scrollAreaTP.setWidget(self.scrollAreaWidgetContents_2)
         self.gridLayout_4.addWidget(self.scrollAreaTP, 0, 0, 1, 1)
@@ -297,7 +300,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaWkillTree.setWidgetResizable(True)
         self.scrollAreaWkillTree.setObjectName(_fromUtf8("scrollAreaWkillTree"))
         self.scrollAreaWidgetContents_4 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 778, 357))
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.scrollAreaWidgetContents_4.setObjectName(_fromUtf8("scrollAreaWidgetContents_4"))
         self.scrollAreaWkillTree.setWidget(self.scrollAreaWidgetContents_4)
         self.gridLayout_5.addWidget(self.scrollAreaWkillTree, 0, 0, 1, 1)
@@ -313,7 +316,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaQuests.setWidgetResizable(True)
         self.scrollAreaQuests.setObjectName(_fromUtf8("scrollAreaQuests"))
         self.scrollAreaWidgetContents_5 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 778, 357))
+        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 100, 30))
         self.scrollAreaWidgetContents_5.setObjectName(_fromUtf8("scrollAreaWidgetContents_5"))
         self.scrollAreaQuests.setWidget(self.scrollAreaWidgetContents_5)
         self.gridLayout_7.addWidget(self.scrollAreaQuests, 0, 0, 1, 1)

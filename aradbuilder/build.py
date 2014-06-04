@@ -2,6 +2,7 @@ from PyQt4.QtCore import pyqtSlot, pyqtSignal
 from PyQt4.QtGui import QWidget, QPixmap, QHBoxLayout, QSpacerItem, QSizePolicy, \
     QVBoxLayout
 
+from aradbuilder.questwidget import QuestWidget
 from aradbuilder.skillbox import SkillBox
 from pyui.Build_ui import Ui_WidgetBuild as BuildUi
 
@@ -21,7 +22,6 @@ class Build(QWidget, BuildUi):
         self.lineEditSubClass.setText(subClass)
         self.spinBoxLevel.lineEdit().setReadOnly(True)
         self.labelCharPicture.setPixmap(QPixmap(path))
-        self.updateTotalPoints(self.spinBoxLevel.value())
 
         self.createObjects()
         self.fillSpTab()
@@ -32,8 +32,11 @@ class Build(QWidget, BuildUi):
         self.createConnections()
         self.connectRequiredSkills()
 
+        self.updateTotalPoints(self.spinBoxLevel.value())
+
 
     def createObjects(self):
+        self.questWidget = QuestWidget()
         self.spDict = {}
         self.tpDict = {}
         self.qpDict = {}
@@ -118,13 +121,10 @@ class Build(QWidget, BuildUi):
         generalBox.totalChanged.connect(self.updateUsedQP)
 
     def fillQuestTab(self):
-        questWidget = QWidget()
-        questLayout = QVBoxLayout()
-
-        # insert Quests Magic here
-
-        questWidget.setLayout(questLayout)
-        self.scrollAreaQuests.setWidget(questWidget)
+        self.scrollAreaQuests.setWidget(self.questWidget)
+        self.questWidget.totalChanged.connect(self.updateTotalPoints)
+        for quest in self.questWidget.quests.values():
+            self.spinBoxLevel.valueChanged.connect(quest.updateState)
 
     def fillSkillTreeTab(self):
         # until further notice
@@ -158,9 +158,14 @@ class Build(QWidget, BuildUi):
                     req.dependants.setdefault(skill.req[name], []).append(skill)
                     skill.requirements[req] = skill.req[name]
     @pyqtSlot(int)
-    def updateTotalPoints(self, level):
-        self.spinBoxTpTotal.setValue(self._mainWindow.dictTP[level])
-        self.spinBoxSpTotal.setValue(self._mainWindow.dictSP[level])
+    def updateTotalPoints(self, level=0):
+        if level == 0:
+            level = self.spinBoxLevel.value()
+        self.spinBoxTpTotal.setValue(self._mainWindow.dictTP[level] +
+                                     self.questWidget.getTotalTP())
+        self.spinBoxSpTotal.setValue(self._mainWindow.dictSP[level] +
+                                     self.questWidget.getTotalSP())
+        self.spinBoxQpTotal.setValue(self.questWidget.getTotalQP())
 
     @pyqtSlot()
     def updateUsedSP(self):

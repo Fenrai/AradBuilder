@@ -38,7 +38,6 @@ def launchGui(argv=None):
 
     app.exec_()
 
-
 class MainWindow(QMainWindow, MainWindowUI):
 
     def __init__(self, parent=None):
@@ -54,6 +53,9 @@ class MainWindow(QMainWindow, MainWindowUI):
     def createConnections(self):
         self.actionAdd.triggered.connect(self.getNewCharValues)
         self.actionSave.triggered.connect(self.saveBuilds)
+        self.actionShowMax.toggled.connect(self.updateMaxVisibility)
+        self.actionShowCost.toggled.connect(self.updateCostVisibility)
+        self.actionShowTotal.toggled.connect(self.updateTotalVisibility)
 
     def getPointsDict(self, key):
         pDict = {}
@@ -77,6 +79,10 @@ class MainWindow(QMainWindow, MainWindowUI):
         self.listBuilds.setCurrentRow(self.listBuilds.count() - 1)
         charBuild.nameChanged.connect(self.updateListName)
 
+        self.setMaxVisibility(self.actionShowMax.isChecked(), charBuild)
+        self.setCostVisibility(self.actionShowCost.isChecked(), charBuild)
+        self.setTotalVisibility(self.actionShowTotal.isChecked(), charBuild)
+
     def nameInList(self, name):
         return False
 
@@ -98,6 +104,47 @@ class MainWindow(QMainWindow, MainWindowUI):
             else:
                 path = customPath
             self.createNewChar(name, mainClass, subClass, path)
+
+    @pyqtSlot(bool)
+    def updateMaxVisibility(self, visible):
+        for i in range(self.stackedBuilds.count()):
+            self.setMaxVisibility(visible, self.stackedBuilds.widget(i))
+
+    def setMaxVisibility(self, visible, build):
+        for skillBox in build.spDict.values() + \
+                        build.tpDict.values() + \
+                        build.qpDict.values():
+                skillBox.labelMax.setVisible(visible)
+                for skill in skillBox.skills.values():
+                    skill.spinBoxMax.setVisible(visible)
+
+    @pyqtSlot(bool)
+    def updateCostVisibility(self, visible):
+        for i in range(self.stackedBuilds.count()):
+            self.setCostVisibility(visible, self.stackedBuilds.widget(i))
+
+    def setCostVisibility(self, visible, build):
+        for skillBox in build.spDict.values() + \
+                        build.tpDict.values() + \
+                        build.qpDict.values():
+                skillBox.labelCost.setVisible(visible)
+                for skill in skillBox.skills.values():
+                    skill.spinBoxCost.setVisible(visible)
+
+    @pyqtSlot(bool)
+    def updateTotalVisibility(self, visible):
+        for i in range(self.stackedBuilds.count()):
+            self.setTotalVisibility(visible, self.stackedBuilds.widget(i))
+
+    def setTotalVisibility(self, visible, build):
+        for skillBox in build.spDict.values() + \
+                        build.tpDict.values() + \
+                        build.qpDict.values():
+                skillBox.widgetSpacer.setVisible(visible)
+                skillBox.labelTotal.setVisible(visible)
+                for skill in skillBox.skills.values():
+                    skill.line.setVisible(visible)
+                    skill.spinBoxTotal.setVisible(visible)
 
     @pyqtSlot()
     def saveBuilds(self):

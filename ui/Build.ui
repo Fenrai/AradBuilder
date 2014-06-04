@@ -489,6 +489,9 @@
            <property name="buttonSymbols">
             <enum>QAbstractSpinBox::NoButtons</enum>
            </property>
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
            <property name="maximum">
             <number>99999</number>
            </property>
@@ -520,6 +523,9 @@
            <property name="buttonSymbols">
             <enum>QAbstractSpinBox::NoButtons</enum>
            </property>
+           <property name="minimum">
+            <number>-99999</number>
+           </property>
            <property name="maximum">
             <number>99999</number>
            </property>
@@ -550,6 +556,9 @@
            </property>
            <property name="buttonSymbols">
             <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="minimum">
+            <number>-99999</number>
            </property>
            <property name="maximum">
             <number>99999</number>
@@ -587,7 +596,7 @@
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>

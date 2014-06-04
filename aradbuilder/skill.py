@@ -16,12 +16,14 @@ class Skill(QWidget, SkillUi):
         self.setupUi(self)
 
         self.name = name
+        self.spinBoxLevel.lineEdit().setReadOnly(True)
         self.createObjects(skillParser, picDir)
         self.setValues()
         self.createConnections()
         self.labelPic.setPixmap(self.active)
         self.labelPic.setToolTip('<b>' + self.name + '</b><br></br>' + \
                                     skillParser.get(self.name, 'desc'))
+        self.updateMax(70)
 
     def createObjects(self, skillParser, picDir):
         self.start = int(skillParser.get(self.name, 'start'))
@@ -40,6 +42,8 @@ class Skill(QWidget, SkillUi):
     def setValues(self):
         self.spinBoxMax.setValue(self.max)
         self.spinBoxLevel.setMaximum(self.max)
+        if self.cost1 is 0:
+            self.spinBoxLevel.setMinimum(1)
         self.updateCost()
         self.updateTotal()
 

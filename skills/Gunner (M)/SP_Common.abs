@@ -1,0 +1,241 @@
+;[]
+;start = 
+;max = 
+;cost1 = 
+;cost = 
+;interval = 
+;active = .png
+;inactive = .png
+;requirements = {}
+;desc = 
+
+[Jack Spike]
+start = 1
+max = 10
+cost1 = 0
+cost = 20
+interval = 3
+active = 6.png
+inactive = 7.png
+requirements = {}
+desc = Launches an opponent with strong knee kick.
+
+[Cancel - Jack Spike]
+start = 1
+max = 1
+cost1 = 50 
+cost = 50
+interval = 1
+active = 206.png
+inactive = 207.png
+requirements = {'Jack Spike':1}
+desc = Allows you to cancel out of a normal attack combo into Jack Spike.
+
+[Punisher]
+start = 10
+max = 10
+cost1 = 15
+cost = 15
+interval = 2
+active = 10.png
+inactive = 11.png
+requirements = {}
+desc = Slides into the enemy and creates a shockwave that damages any nearby enemies. The female gunner then jumps into the air and fires rapidly at the enemy while it is on the ground. Deals physical damage.
+
+[Cancel - Punisher]
+start = 20
+max = 1
+cost1 = 50 
+cost = 50
+interval = 1
+active = 64.png
+inactive = 65.png
+requirements = {'Punisher':5}
+desc = Cancels normal attacks to use Punisher right away.
+
+[Mach Kick]
+start = 15
+max = 10
+cost1 = 25
+cost = 25
+interval = 2
+active = 8.png
+inactive = 9.png
+requirements = {}
+desc = A very fast frontal kick with a chance to stun. Has slightly longer reach than the male version of this skill.
+
+[Cancel - Mach Kick]
+start = 25
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 62.png
+inactive = 63.png
+requirements = {'Mach Kick':5}
+desc = Cancels normal attacks to use Mach Kick right away.
+
+[M-3 Flamethrower]
+start = 15
+max = 30
+cost1 = 20
+cost = 20
+interval = 2
+active = 20.png
+inactive = 21.png
+requirements = {}
+desc = Fires a flamethrower. Ignores obstacles and damages every targets within the range per 0.3 second. It counts as a fire elemental attack, and lasts for 3 seconds maximum. The duration of targets being stunned last longer as the skill level goes up.
+
+[Rising Shot]
+start = 1
+max = 30
+cost1 = 0
+cost = 15
+interval = 2
+active = 118.png
+inactive = 119.png
+requirements = {}
+desc = Fires a bullet that launches the target high in the air.
+
+[Cancel - Rising Shot]
+start = 1
+max = 1
+cost1 = 10
+cost = 10
+interval = 1
+active = 196.png
+inactive = 197.png
+requirements = {'Rising Shot':1}
+desc = Cancels normal attacks to use Rising Shot right away.
+
+[Steep Slide]
+start = 10
+max = 5
+cost1 = 25
+cost = 25
+interval = 3
+active = 80.png
+inactive = 81.png
+requirements = {}
+desc = Any targets hit by sliding attack after the activation of this skill will be launched high in the air.
+
+[Silver Bullet]
+start = 5
+max = 30
+cost1 = 15
+cost = 15
+interval = 2
+active = 12.png
+inactive = 13.png
+requirements = {}
+desc = Enchant light element to 20 bullets. Each bullet deals additional light damage according to magical attack. Undead, Demon, and Spirit type monsters will receive higher additional damage.
+
+[G-14 Buster]
+start = 15
+max = 30
+cost1 = 20
+cost = 20
+interval = 2
+active = 140.png
+inactive = 141.png
+requirements = {}
+desc = Throws an explosive grenade dealing fire damage. Once the skill has been used for the first time, 5 set of grenades will be loaded (6 for Female Gunners). Each grenade can be thrown by pressing the skill button again afterward.
+
+[BBQ]
+start = 15
+max = 10
+cost1 = 25
+cost = 25
+interval = 2
+active = 46.png
+inactive = 47.png
+requirements = {'Jack Spike':5, 'M-137 Gatling Gun':1}
+desc = The user uses Jack Spike on all enemies within range. The Gunner will lock onto one target and fire his Gatling Gun at the target while it is in the air. Should the user is attacked during Jack Spike and super armor is activated, 30%% of the maximum damage will be deducted.
+
+[Cancel - BBQ]
+start = 25
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 66.png
+inactive = 67.png
+requirements = {'BBQ':5}
+desc = Cancels normal attacks to use BBQ right away.
+
+[Windmill]
+start = 10
+max = 10
+cost1 = 20
+cost = 20
+interval = 2
+active = 36.png
+inactive = 37.png
+requirements = {}
+desc = Attacks all nearby opponents with windmill kick.
+
+[Cancel - Windmill]
+start = 25
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 204.png
+inactive = 205.png
+requirements = {'Windmill':5}
+desc = Cancels normal attacks to use Windmill right away.
+
+[Rising Windmill]
+start = 25
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 38.png
+inactive = 39.png
+requirements = {'Windmill':5}
+desc = Enables you to immediately stand up and cast Windmill Kick after you are knocked down. Also enables you to cast Windmill Kick during a slide attack.
+
+[Aerial Fire]
+start = 10
+max = 10
+cost1 = 25
+cost = 25
+interval = 3
+active = 74.png
+inactive = 75.png
+requirements = {}
+desc = Increases strength of aerial attacks and maximum number of shots in the air. Remains in the air longer on each aerial shots for accuracy.
+
+[RX-78 Land Runner]
+start = 5
+max = 30
+cost1 = 25
+cost = 25
+interval = 2
+active = 26.png
+inactive = 27.png
+requirements = {}
+desc = Installs an RX-78 Land Runner that follows the enemy around and explodes to inflict fire damage on that enemy as well as fire elemental damages on surrounding enemies. Inflicts a 125%% damage on Building Armor type enemies.
+
+[M-137 Gatling Gun]
+start = 5
+max = 30
+cost1 = 15
+cost = 15
+interval = 2
+active = 14.png
+inactive = 15.png
+requirements = {}
+desc = Brings out a Gatling Machine Gun and fires multiple bullets. The firing lasts for maximum of 2 seconds and shoots maximum of 14 bullets.
+
+[Cancel - M-137 Gatling Gun]
+start = 15
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 58.png
+inactive = 59.png
+requirements = {'M-137 Gatling Gun':5}
+desc = Cancels normal attacks to use gatling gun right away.

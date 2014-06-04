@@ -42,7 +42,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -65,8 +65,11 @@
    </widget>
    <widget class="QMenu" name="menuConfugure">
     <property name="title">
-     <string>Confugure</string>
+     <string>Configure</string>
     </property>
+    <addaction name="actionShowTotal"/>
+    <addaction name="actionShowCost"/>
+    <addaction name="actionShowMax"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -141,6 +144,39 @@
    </property>
    <property name="shortcut">
     <string>Shift+Del</string>
+   </property>
+  </action>
+  <action name="actionShowTotal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Total</string>
+   </property>
+  </action>
+  <action name="actionShowCost">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Cost</string>
+   </property>
+  </action>
+  <action name="actionShowMax">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Max</string>
    </property>
   </action>
  </widget>
