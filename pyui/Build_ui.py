@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui\Build.ui'
 #
-# Created: Tue Jun 03 23:18:13 2014
+# Created: Tue Jun 10 00:13:29 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -316,7 +316,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaQuests.setWidgetResizable(True)
         self.scrollAreaQuests.setObjectName(_fromUtf8("scrollAreaQuests"))
         self.scrollAreaWidgetContents_5 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_5.setGeometry(QtCore.QRect(0, 0, 778, 357))
         self.scrollAreaWidgetContents_5.setObjectName(_fromUtf8("scrollAreaWidgetContents_5"))
         self.scrollAreaQuests.setWidget(self.scrollAreaWidgetContents_5)
         self.gridLayout_7.addWidget(self.scrollAreaQuests, 0, 0, 1, 1)

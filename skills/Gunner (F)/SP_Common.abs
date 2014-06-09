@@ -56,7 +56,7 @@ desc = Cancels normal attacks to use Spriggan right away.
 [Needle Sobat]
 start = 15
 max = 10
-cost1 = 25
+cost1 = 0
 cost = 25
 interval = 2
 active = 226.png
@@ -133,7 +133,7 @@ desc = Enchant light element to 20 bullets. Each bullet deals additional light d
 [G-14 Buster]
 start = 15
 max = 30
-cost1 = 20
+cost1 = 0
 cost = 20
 interval = 2
 active = 140.png
@@ -210,7 +210,7 @@ desc = Increases strength of aerial attacks and maximum number of shots in the a
 [RX-78 Land Runner]
 start = 5
 max = 30
-cost1 = 25
+cost1 = 0
 cost = 25
 interval = 2
 active = 26.png
@@ -221,7 +221,7 @@ desc = Installs an RX-78 Land Runner that follows the enemy around and explodes 
 [M-137 Gatling Gun]
 start = 5
 max = 30
-cost1 = 15
+cost1 = 0
 cost = 15
 interval = 2
 active = 14.png

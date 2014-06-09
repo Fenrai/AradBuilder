@@ -31,10 +31,14 @@ class Skill(QWidget, SkillUi):
         self.interval = int(skillParser.get(self.name, 'interval'))
         self.cost1 = int(skillParser.get(self.name, 'cost1'))
         self.cost = int(skillParser.get(self.name, 'cost'))
-        self.active = QPixmap(os.path.join(picDir,
-                                           skillParser.get(self.name, 'active')))
-        self.inactive = QPixmap(os.path.join(picDir,
-                                             skillParser.get(self.name, 'inactive')))
+        active = os.path.join(picDir, skillParser.get(self.name, 'active'))
+        if not os.path.exists(active):
+            active = os.path.join('skills', 'Default', 'NoImageActive.png')
+        self.active = QPixmap(active)
+        inactive = os.path.join(picDir, skillParser.get(self.name, 'inactive'))
+        if not os.path.exists(inactive):
+            inactive = os.path.join('skills', 'Default', 'NoImageInactive.png')
+        self.inactive = QPixmap(inactive)
         self.req = ast.literal_eval(skillParser.get(self.name, 'requirements'))
         self.dependants = {}
         self.requirements = {}

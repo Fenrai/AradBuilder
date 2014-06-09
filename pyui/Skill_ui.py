@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui\Skill.ui'
 #
-# Created: Tue Jun 03 23:16:55 2014
+# Created: Tue Jun 10 00:09:47 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -48,9 +48,9 @@ class Ui_Skill(object):
         self.spinBoxLevel = QtGui.QSpinBox(Skill)
         self.spinBoxLevel.setMinimumSize(QtCore.QSize(40, 25))
         self.spinBoxLevel.setMaximumSize(QtCore.QSize(40, 25))
-        self.spinBoxLevel.setCursor(QtGui.QCursor(QtCore.Qt.SizeVerCursor))
+        self.spinBoxLevel.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.spinBoxLevel.setAutoFillBackground(False)
-        self.spinBoxLevel.setStyleSheet(_fromUtf8("QSpinBox{color: rgb(0, 0, 0)};"))
+        self.spinBoxLevel.setStyleSheet(_fromUtf8("QSpinBox{color: rgb(0, 0, 0); font-weight:bold;};"))
         self.spinBoxLevel.setWrapping(False)
         self.spinBoxLevel.setFrame(True)
         self.spinBoxLevel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -90,6 +90,35 @@ class Ui_Skill(object):
         self.spinBoxTotal.setEnabled(True)
         self.spinBoxTotal.setMinimumSize(QtCore.QSize(40, 25))
         self.spinBoxTotal.setMaximumSize(QtCore.QSize(40, 25))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(85, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(85, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.spinBoxTotal.setPalette(palette)
         self.spinBoxTotal.setStyleSheet(_fromUtf8("QSpinBox{color: rgb(0, 170, 0)};"))
         self.spinBoxTotal.setFrame(True)
         self.spinBoxTotal.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)

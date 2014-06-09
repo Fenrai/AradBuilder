@@ -65,6 +65,6 @@ if __name__ == '__main__':
     print '---------------------------------------'
     print paths.skillFilePaths
     print '---------------------------------------'
-    print paths.getPicturePath('skill', 'Gunner (F)', 'Mechanic')
-    print paths.getPicturePath('skill', 'General', 'TP')
-    print paths.getPicturePath('char', 'Gunner (F)')
+    print paths.getSPicPath('Gunner (F)', 'Mechanic')
+    print paths.getTPictPath('General', 'TP')
+    print paths.getFilePath('char', 'Gunner (F)')

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/SkillBox.ui'
+# Form implementation generated from reading ui file 'ui\SkillBox.ui'
 #
-# Created: Wed Jun  4 18:33:32 2014
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Tue Jun 10 00:12:50 2014
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_SkillBox(object):
     def setupUi(self, SkillBox):
@@ -20,7 +29,7 @@ class Ui_SkillBox(object):
         SkillBox.resize(94, 198)
         self.mainLayout = QtGui.QHBoxLayout(SkillBox)
         self.mainLayout.setSpacing(3)
-        self.mainLayout.setContentsMargins(0, 6, 0, 0)
+        self.mainLayout.setMargin(6)
         self.mainLayout.setObjectName(_fromUtf8("mainLayout"))
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setContentsMargins(2, -1, 2, -1)
@@ -62,13 +71,13 @@ class Ui_SkillBox(object):
         QtCore.QMetaObject.connectSlotsByName(SkillBox)
 
     def retranslateUi(self, SkillBox):
-        SkillBox.setWindowTitle(QtGui.QApplication.translate("SkillBox", "SkillBox", None, QtGui.QApplication.UnicodeUTF8))
-        SkillBox.setTitle(QtGui.QApplication.translate("SkillBox", "SkillBox", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelTotal.setText(QtGui.QApplication.translate("SkillBox", "Total:", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelMax.setText(QtGui.QApplication.translate("SkillBox", "Max:", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelSkill.setText(QtGui.QApplication.translate("SkillBox", "Skill:", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelLevel.setText(QtGui.QApplication.translate("SkillBox", "Level:", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelCost.setText(QtGui.QApplication.translate("SkillBox", "Cost:", None, QtGui.QApplication.UnicodeUTF8))
+        SkillBox.setWindowTitle(_translate("SkillBox", "SkillBox", None))
+        SkillBox.setTitle(_translate("SkillBox", "SkillBox", None))
+        self.labelTotal.setText(_translate("SkillBox", "Total:", None))
+        self.labelMax.setText(_translate("SkillBox", "Max:", None))
+        self.labelSkill.setText(_translate("SkillBox", "Skill:", None))
+        self.labelLevel.setText(_translate("SkillBox", "Level:", None))
+        self.labelCost.setText(_translate("SkillBox", "Cost:", None))
 
 
 if __name__ == "__main__":

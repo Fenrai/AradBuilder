@@ -4,7 +4,6 @@ qp = 2900
 sp = 1
 tp = 1
 
-
 [Dummy 2]
 level = 70
 qp = 50

@@ -8,3 +8,186 @@
 ;inactive = .png
 ;requirements = {}
 ;desc = 
+
+[Strength]
+start = 1
+; 20
+max = 26
+cost1 = 20
+cost = 20
+interval = 1
+active = 1.png
+inactive = 2.png
+levels = {20: 4, 25: 1;30: 1,35: 1,40: 2,45: 3,50: 3,55: 3,60: 3,65: 3,70: 3}
+requirements = {}
+desc = +6 per level
+
+[Intelligence]
+start = 1
+; 20
+max = 26
+cost1 = 20
+cost = 20
+interval = 1
+active = 3.png
+inactive = 4.png
+requirements = {}
+levels = {20: 4, 25: 1;30: 1,35: 1,40: 2,45: 3,50: 3,55: 3,60: 3,65: 3,70: 3}
+desc = +6 per level
+
+[Vitality]
+start = 1
+; 20
+max = 26
+cost1 = 20
+cost = 20
+interval = 1 
+active = 5.png
+inactive = 6.png
+requirements = {}
+levels = {20: 4, 25: 1;30: 1,35: 1,40: 2,45: 3,50: 3,55: 3,60: 3,65: 3,70: 3}
+desc = +6 per level
+
+[Spirit]
+start = 1
+; 20
+max = 26
+cost1 = 20
+cost = 20
+interval = 1
+active = 7.png
+inactive = 8.png
+requirements = {}
+levels = {20: 4, 25: 1;30: 1,35: 1,40: 2,45: 3,50: 3,55: 3,60: 3,65: 3,70: 3}
+desc = +6 per level
+
+[Movement Speed]
+start = 1
+; 20
+max = 5
+cost1 = 20
+cost = 20
+interval = 1
+active = 9.png
+inactive = 10.png
+requirements = {}
+levels = {20: 1, 25: 0;30: 0,35: 0,40: 1,45: 0,50: 1,55: 0,60: 1,65: 0,70: 1}
+desc = +0.4 per level
+
+[Physical Critical Hit]
+start = 1
+; 20
+cost1 = 20
+max = 26
+cost1 = 20
+cost = 20
+interval = 1
+active = 11.png
+inactive = 12.png
+requirements = {}
+levels = {20: 1, 25: 0;30: 1,35: 0,40: 1,45: 0,50: 1,55: 0,60: 1,65: 0,70: 0}
+desc = +1%% per level
+
+[Magic Critical Hit]
+start = 1
+; 20
+max = 5
+cost1 = 20
+cost = 20
+interval = 1
+active = 13.png
+inactive = 14.png
+requirements = {}
+levels = {20: 1, 25: 0;30: 1,35: 0,40: 1,45: 0,50: 1,55: 0,60: 1,65: 0,70: 0}
+desc = +1%% per level
+
+[Hit Rate]
+start = 1
+; 50
+max = 20
+cost1 = 35
+cost = 35
+interval = 1
+active = 15.png
+inactive = 16.png
+requirements = {}
+levels = {20: 0, 25: 0;30: 0,35: 0,40: 0,45: 0,50: 4,55: 4,60: 4,65: 4,70: 4}
+desc = +0,5%% per level
+
+[Evasion]
+start = 1
+; 50
+max = 20
+cost1 = 35
+cost = 35
+interval = 1
+active = 17.png
+inactive = 18.png
+requirements = {}
+levels = {20: 0, 25: 0;30: 0,35: 0,40:0 ,45: 0,50: 4,55: 4,60: 4,65: 4,70: 4}
+desc = +0,5%% per level
+
+[HP Replenish]
+start = 1
+; 20
+max = 8
+cost1 = 20 
+cost = 20
+interval = 1
+active = 19.png
+inactive = 20.png
+requirements = {}
+levels = {20: 1, 25: 0;30: 2,35: 0,40: 2,45: 0,50: 3,55: 0,60: 0,65: 0,70: 0}
+desc = +65HP/min per level
+
+[MP Replenish]
+start = 1
+; 20
+max = 8
+cost1 = 20
+cost = 20
+interval = 1
+active = 21.png
+inactive = 22.png
+requirements = {}
+levels = {20: 1, 25: 0;30: 2,35: 0,40: 2,45: 0,50: 3,55: 0,60: 0,65: 0,70: 0}
+desc = +50MP/min per level
+
+[Elemental Attack]
+start = 1
+; 50
+max = 10
+cost1 = 70
+cost = 70
+interval = 1
+active = 23.png
+inactive = 24.png
+requirements = {}
+levels = {20: 0, 25: 0;30: 0,35: 0,40: 0,45: 0,50: 2,55: 2,60: 2,65: 2,70: 2}
+desc = +1 per level
+
+[All Elemental Resistance]
+start = 1
+; 20
+max = 10
+cost1 = 20
+cost = 20
+interval = 1
+active = 25.png
+inactive = 26.png
+requirements = {}
+levels = {20: 1, 25: 0;30: 0,35: 0,40: 4,45: 0,50: 0,55: 3,60: 0,65: 2,70: }
+desc = +1 per level
+
+[All Basic Attack Strength]
+start = 1
+; 50
+max = 5
+cost1 = 20
+cost = 70
+interval = 1
+active = 27.png
+inactive = 28.png
+requirements = {}
+levels = {20: 0, 25: 0;30: 0,35: 0,40: 0,45: 0,50: 2,55: 2,60: 2,65: 2,70: 2}
+desc = +5 per level (For every 100 Base Attack Strength, all fixed skill damage is increased by 10%%.)

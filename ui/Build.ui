@@ -596,7 +596,7 @@
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -658,8 +658,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>778</width>
-            <height>357</height>
+            <width>100</width>
+            <height>30</height>
            </rect>
           </property>
          </widget>
@@ -691,8 +691,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>778</width>
-            <height>357</height>
+            <width>100</width>
+            <height>30</height>
            </rect>
           </property>
          </widget>
@@ -724,8 +724,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>778</width>
-            <height>357</height>
+            <width>100</width>
+            <height>30</height>
            </rect>
           </property>
          </widget>
