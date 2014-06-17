@@ -22,25 +22,32 @@
 #
 # *****************************************************************************
 
-import os
-
-#from setuptools import setup
-from distutils.core import setup
-from distutils.core import Extension
-from distutils.core import Command
 from distutils.command.build_py import build_py as _build_py
+from distutils.core import Command
+from distutils.core import Extension
+from distutils.core import setup
+from glob import glob
+import os
+import sys
 
+import py2exe
+
+
+sys.path.append("C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\VC\\redist\\x86\\Microsoft.VC90.CRT")
+
+# from setuptools import setup
 ########################################################################
 #                             Package data                             #
 ########################################################################
-
-PKG_NAME        = 'arad-builder'
-PKG_VERSION     = '0.0.0'
-PKG_DESC        = 'Configurable builder for Dungeon Fighter Online / Arado Senki.'
-PKG_AUTHOR      = 'Stefan Rainow'
+PKG_NAME = 'arad-builder'
+PKG_VERSION = '0.0.0'
+PKG_DESC = 'Configurable builder for Dungeon Fighter Online / Arado Senki.'
+PKG_AUTHOR = 'Stefan Rainow'
 PKG_AUTHOR_MAIL = 'stefan.rainow@gmx.de'
-PKG_WEBSITE     = 'https://github.com/Fenrai/AradBuilder'
-PKG_LICENSE     = 'GPLv2'
+PKG_WEBSITE = 'https://github.com/Fenrai/AradBuilder'
+PKG_LICENSE = 'GPLv2'
+PKG_FILES = [("Microsoft.VC90.CRT", glob(r'C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\redist\x86\Microsoft.VC90.CRT\*.*'))]
+PKG_ICON = []
 
 ########################################################################
 #                            Old util stuff                            #
@@ -65,7 +72,7 @@ def findDesignerFiles(path):
         if os.path.splitext(entry)[1] == ".ui":
             designerFiles.append(entry)
     for entry in dirList:
-        entry,findDesignerFiles(entry)
+        entry, findDesignerFiles(entry)
 
 
 def buildDesignerFiles():
@@ -75,9 +82,9 @@ def buildDesignerFiles():
 
     for entry in designerFiles:
         filename = os.path.basename(entry)
-        path = os.path.dirname(entry) + "/"
-        out = "ui_" + os.path.splitext(filename)[0] + ".py"
-        command = "pyuic4 " + entry + " > " + path + out
+        path = os.path.join('pyui')
+        out = os.path.splitext(filename)[0] + "_ui.py"
+        command = "pyuic4 " + entry + " > " + os.path.join(path, out)
         result = "-"
         if os.system(command) == 0:
             result = "+"
@@ -90,7 +97,7 @@ def findFile(file, path):
             if entry == file:
                 return str(os.path.join(path, entry))
         elif os.path.isdir(os.path.join(path, entry)):
-            rtn = findFile(file,os.path.join(path, entry))
+            rtn = findFile(file, os.path.join(path, entry))
             if rtn:
                 return rtn
 
@@ -124,10 +131,18 @@ setup(name=PKG_NAME,
       author_email=PKG_AUTHOR_MAIL,
       url=PKG_WEBSITE,
       license=PKG_LICENSE,
+      data_files=PKG_FILES,
       package_dir={'aradbuilder' : 'aradbuilder'},
       packages=['aradbuilder'],
       scripts=['builder.py'],
       cmdclass={'build_py': build_py,
-                'build_design': build_design}
+                'build_design': build_design},
+      # options={'py2exe': {'bundle_files': 1}},
+      # zipfile=None,
+      windows=[{
+                'script': 'builder.py',
+                'icon_resources': [(0, 'ARAD.ico'), (42, 'ARAD.ico')],
+                'dest_base': 'Arad Builder'
+                }]
       )
 

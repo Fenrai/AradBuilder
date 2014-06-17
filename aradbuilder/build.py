@@ -18,6 +18,7 @@ class Build(QWidget, BuildUi):
         self._mainWindow = mainWindow
         self.mainClass = mainClass
         self.subClass = subClass
+        self.path = path
         self.lineEditClass.setText(mainClass)
         self.lineEditSubClass.setText(subClass)
         self.spinBoxLevel.lineEdit().setReadOnly(True)
@@ -50,7 +51,9 @@ class Build(QWidget, BuildUi):
         self.spinBoxTpUsed.valueChanged.connect(self.updateRemainingTP)
         self.spinBoxQpTotal.valueChanged.connect(self.updateRemainingQP)
         self.spinBoxQpUsed.valueChanged.connect(self.updateRemainingQP)
-        for skillBox in self.spDict.values():
+        for skillBox in self.spDict.values() + \
+                        self.tpDict.values() + \
+                        self.qpDict.values():
             for skill in skillBox.skills.values():
                 self.spinBoxLevel.valueChanged.connect(skill.updateMax)
 
@@ -83,7 +86,7 @@ class Build(QWidget, BuildUi):
         tpLayout = QVBoxLayout()
 
         generalBox = SkillBox('General', 'TP', 'General', 'TP')
-        commonBox = SkillBox('Common', 'TP', self.mainClass, self.subClass)
+        commonBox = SkillBox('Common', 'TP', self.mainClass, 'Common')
         classBox = SkillBox('Class', 'TP', self.mainClass, self.subClass)
 
         tpLayout.addLayout(self.getLayout(generalBox))
@@ -99,9 +102,8 @@ class Build(QWidget, BuildUi):
         tpWidget.setLayout(tpLayout)
         self.scrollAreaTP.setWidget(tpWidget)
 
-        generalBox.totalChanged.connect(self.updateUsedTP)
-        commonBox.totalChanged.connect(self.updateUsedTP)
-        classBox.totalChanged.connect(self.updateUsedTP)
+        for skillBox in self.tpDict.values():
+            skillBox.totalChanged.connect(self.updateUsedTP)
 
     def fillQpTab(self):
         qpWidget = QWidget()
@@ -118,13 +120,15 @@ class Build(QWidget, BuildUi):
         qpWidget.setLayout(qpLayout)
         self.scrollAreaQP.setWidget(qpWidget)
 
-        generalBox.totalChanged.connect(self.updateUsedQP)
+        for skillBox in self.qpDict.values():
+            skillBox.totalChanged.connect(self.updateUsedQP)
 
     def fillQuestTab(self):
         self.scrollAreaQuests.setWidget(self.questWidget)
         self.questWidget.totalChanged.connect(self.updateTotalPoints)
         for quest in self.questWidget.quests.values():
             self.spinBoxLevel.valueChanged.connect(quest.updateState)
+        self.tabWidget.removeTab(4)
 
     def fillSkillTreeTab(self):
         # until further notice
@@ -143,8 +147,9 @@ class Build(QWidget, BuildUi):
         for skillBox in self.spDict.values() + \
                         self.tpDict.values() + \
                         self.qpDict.values():
-            if name in skillBox.skills.keys():
-                return skillBox.skills[name]
+            for skill in skillBox.skills.keys():
+                if skill.lower() == name.lower():
+                    return skillBox.skills[skill]
         print name + ' not found'
         return None
 

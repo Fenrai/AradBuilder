@@ -1,11 +1,11 @@
 [Dummy]
 level = 1
-qp = 2900
-sp = 1
-tp = 1
+qp = 2950
+sp = 0
+tp = 0
 
-[Dummy 2]
-level = 70
-qp = 50
-sp = 1
-tp = 1
+;[Dummy 2]
+;level = 70
+;qp = 0
+;sp = 0
+;tp = 0

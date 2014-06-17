@@ -8,3 +8,113 @@
 ;inactive = .png
 ;requirements = {}
 ;desc = 
+
+[Marilyn Rose Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 354.png
+inactive = 355.png
+requirements = {'Marilyn Rose': 10}
+desc = Increases the Attack Strength of Marilyn Rose.
+
+[Spriggan Upgrade]
+start = 50
+max = 1
+cost1 = 2
+cost = 2
+interval = 1
+active = 410.png
+inactive = 411.png
+requirements = {'Spriggan': 10}
+desc = Increases the number of shots, the attack and shockwave range of Spriggan.
+
+[Needle Sobat Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 332.png
+inactive = 333.png
+requirements = {'Needle Sobat': 10}
+desc = Increases the attack strength and knock back of Needle Sobat.
+
+[Rising Shot Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 352.png
+inactive = 353.png
+requirements = {'Rising Shot': 10}
+desc = Increases the Attack Strength and decreases after-cast delay of Rising Shot.
+
+[Silver Bullet Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 298.png
+inactive = 299.png
+requirements = {'Silver Bullet': 10}
+desc = Increases maximum number of bullets, damage and bonus damage against undead, demons and ghost of Silver Bullet
+
+[G-14 Buster Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 312.png
+inactive = 313.png
+requirements = {'G-14 Buster': 10}
+desc = Grants the ability to throw 2 grenades at once while consuming 1 grenade at a fixed rate
+
+[BBQ Upgrade]
+start = 50
+max = 1
+cost1 = 2
+cost = 2
+interval = 1
+active = 294.png
+inactive = 295.png
+requirements = {'BBQ': 10}
+desc = Increases maximum number of shots by 2
+
+[Topspin Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 360.png
+inactive = 361.png
+requirements = {'Topspin': 10}
+desc = Increases the Attack Strength and Casting Speed of Topspin.
+
+[RX-78 Land Runner Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 290.png
+inactive = 291.png
+requirements = {'RX-78 Land Runner': 10}
+desc = Increases explosion radius and damage of RX-78
+
+[M-137 Gatling Gun Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 326.png
+inactive = 327.png
+requirements = {'M-137 Gatling Gun': 10}
+desc = Increaces damage and pierce chance of M-137 Gatling Gun.

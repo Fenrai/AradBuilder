@@ -23,6 +23,7 @@ class Skill(QWidget, SkillUi):
         self.labelPic.setPixmap(self.active)
         self.labelPic.setToolTip('<b>' + self.name + '</b><br></br>' + \
                                     skillParser.get(self.name, 'desc'))
+        self.labelPic.setStatusTip(self.name)
         self.updateMax(70)
 
     def createObjects(self, skillParser, picDir):

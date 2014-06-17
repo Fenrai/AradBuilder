@@ -8,3 +8,124 @@
 ;inactive = .png
 ;requirements = {}
 ;desc = 
+
+[Robots Explosion Upgrade]
+start = 55
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 292.png
+inactive = 293.png
+requirements = {'Detonation': 5}
+desc = Increases Damage and Range of Detonation.
+
+[EZ-8 Time Bomb Upgrade]
+start = 55
+max = 5
+cost1 = 2
+cost = 2
+interval = 5
+active = 320.png
+inactive = 321.png
+requirements = {'Ez-8 Time Bomb': 10}
+desc = Increases the Damage and Countdown Time of Ez-8 Time Bomb.
+
+[G-1 Corona Upgrade]
+start = 65
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 310.png
+inactive = 311.png
+requirements = {'G-1 Corona': 10}
+desc = Increaces the shot damage and hit stun of G-1 Corona.
+
+[G-2 Rolling Thunder Upgrade]
+start = 65
+max = 2
+cost1 = 2
+cost = 2
+interval = 5
+active = 392.png
+inactive = 393.png
+requirements = {'G-2 Rolling Thunder': 10}
+desc = Increases the Attack Strength of G-2 Rolling Thunder and the increase rate for G-1 Corona.
+
+[G-3 Raptor Upgrade]
+start = 65
+max = 2
+cost1 = 2
+cost = 2
+interval = 5
+active = 394.png
+inactive = 395.png
+requirements = {'G-3 Raptor': 10}
+desc = Increases the HP and the Attack Strength of G-3 Raptor and increase rate for G-1 Corona.
+
+[Sparrow Factory Upgrade]
+start = 65
+max = 2
+cost1 = 2
+cost = 2
+interval = 5
+active = 322.png
+inactive = 323.png
+requirements = {'Sparrow Factory': 10}
+desc = Increases number of Sparrows.
+
+[Air Bomb Mech: Gale Force Upgrade]
+start = 50
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 386.png
+inactive = 387.png
+requirements = {'Air Combat Mech Gale Force': 10}
+desc = Increases the level and strenth of Air Combat Mech Gale Force.
+
+[Viper Upgrade]
+start = 55
+max = 3
+cost1 = 4
+cost = 4
+interval = 5
+active = 390.png
+inactive = 391.png
+requirements = {'EX-S Viper': 10}
+desc = Adds a piercing chance to the viper.
+
+[Mech Drop Upgrade]
+start = 65
+max = 1
+cost1 = 5
+cost = 5
+interval = 5
+active = 388.png
+inactive = 389.png
+requirements = {'Mech Drop': 10}
+desc = Increases Red Buster's rate and summon count, while decreasing the rate of Steel Smasher, Healing Raider, and Mana Relaxer.
+
+[EZ-10 Time Bomb]
+start = 60
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 282.png
+inactive = 283.png
+requirements = {'Ez-8 Time Bomb': 5}
+desc = Summons a bigger version of the Ez-8 Time Bomb<br>After the explosion, it releases RX-78 Land Runners
+
+[EX-S Viper Zero]
+start = 70
+max = 1
+cost1 = 3
+cost = 3
+interval = 5
+active = 274.png
+inactive = 275.png
+requirements = {'EX-S Viper': 5}
+desc = Superior version of the EX-S Viper with no cool down between each set of shots<br>Has a piercing laser attached to it<br>Drops 3 Land Runners via Mech Dropstyle after exploding

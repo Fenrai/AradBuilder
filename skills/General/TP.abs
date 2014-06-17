@@ -8,3 +8,14 @@
 ;inactive = .png
 ;requirements = {}
 ;desc = 
+
+[Basic Training Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 86.png
+inactive = 87.png
+requirements = {}
+desc = Increases the effect of Basic Training.

@@ -21,7 +21,8 @@ import ConfigParser
 import os
 
 from PyQt4.QtCore import (pyqtSlot)
-from PyQt4.QtGui import (QMainWindow, QApplication, QListWidgetItem)
+from PyQt4.QtGui import (QMainWindow, QApplication, QListWidgetItem,
+    QMessageBox, QFileDialog, QIcon)
 
 import build
 import newdialog
@@ -45,6 +46,12 @@ class MainWindow(QMainWindow, MainWindowUI):
         self.setupUi(self)
         self.createDictionaries()
         self.createConnections()
+        loadParser = ConfigParser.SafeConfigParser()
+        loadParser.read(os.path.join('saves', 'default.abpf'))
+        for option in loadParser.options('builds'):
+            self.loadBuild(loadParser.get('builds', option))
+        self.setWindowIcon(QIcon(os.path.join('ARAD.ico')))
+        self.loadSettings()
 
     def createDictionaries(self):
         self.dictSP = self.getPointsDict('SP')
@@ -56,6 +63,7 @@ class MainWindow(QMainWindow, MainWindowUI):
         self.actionShowMax.toggled.connect(self.updateMaxVisibility)
         self.actionShowCost.toggled.connect(self.updateCostVisibility)
         self.actionShowTotal.toggled.connect(self.updateTotalVisibility)
+        self.actionLoad.triggered.connect(self.loadBuild)
 
     def getPointsDict(self, key):
         pDict = {}
@@ -77,23 +85,81 @@ class MainWindow(QMainWindow, MainWindowUI):
         self.listBuilds.addItem(QListWidgetItem(name))
 
         self.listBuilds.setCurrentRow(self.listBuilds.count() - 1)
-        charBuild.nameChanged.connect(self.updateListName)
+        charBuild.lineEditName.textEdited.connect(self.updateListName)
 
         self.setMaxVisibility(self.actionShowMax.isChecked(), charBuild)
         self.setCostVisibility(self.actionShowCost.isChecked(), charBuild)
         self.setTotalVisibility(self.actionShowTotal.isChecked(), charBuild)
 
-    def nameInList(self, name):
-        return False
+        return charBuild
 
+    def getNameList(self):
+        nameList = []
+        for i in range(self.listBuilds.count()):
+            nameList.append(self.listBuilds.item(i).text())
+
+        return nameList
+
+    def saveCurrentSettings(self):
+        settingsParser = ConfigParser.SafeConfigParser()
+        settingsParser.add_section('window')
+        settingsParser.set('window', 'width', str(self.width()))
+        settingsParser.set('window', 'height', str(self.height()))
+
+        settingsParser.add_section('options')
+        settingsParser.set('options', 'total',
+                           str(self.actionShowTotal.isChecked()))
+        settingsParser.set('options', 'cost',
+                           str(self.actionShowCost.isChecked()))
+        settingsParser.set('options', 'max',
+                           str(self.actionShowMax.isChecked()))
+
+        path = os.path.join('saves', 'settings.absf')
+        with open(path, 'w') as f:
+            settingsParser.write(f)
+
+    def loadSettings(self):
+        settingsParser = ConfigParser.SafeConfigParser()
+        settingsParser.read(os.path.join('saves', 'settings.absf'))
+
+        self.resize(int(settingsParser.get('window', 'width')),
+                    int(settingsParser.get('window', 'height')))
+
+        self.actionShowTotal.setChecked(settingsParser.getboolean('options',
+                                                                  'total'))
+        self.actionShowCost.setChecked(settingsParser.getboolean('options',
+                                                                 'cost'))
+        self.actionShowMax.setChecked(settingsParser.getboolean('options',
+                                                                'max'))
     @pyqtSlot(str)
     def updateListName(self, name):
-        print name
-        self.listBuilds.currentItem().setText(name)
+        if name == '':
+            msgBox = QMessageBox()
+            msgBox.setWindowTitle('Empty name')
+            msgBox.setText('The name must contain at least one character')
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.exec_()
+
+            name = self.listBuilds.currentItem().text()
+            self.stackedBuilds.currentWidget().lineEditName.setText(name)
+
+        elif name in self.getNameList() and name != \
+                                    str(self.listBuilds.currentItem().text()):
+            oldName = self.listBuilds.currentItem().text()
+            self.stackedBuilds.currentWidget().lineEditName.setText(oldName)
+
+            msgBox = QMessageBox()
+            msgBox.setWindowTitle('Name already exists')
+            msgBox.setText('The name\n' + oldName + '\nalready exists.')
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.exec_()
+
+        else:
+            self.listBuilds.currentItem().setText(name)
 
     @pyqtSlot()
     def getNewCharValues(self):
-        newDialog = newdialog.NewDialog()
+        newDialog = newdialog.NewDialog(self.getNameList())
         if newDialog.exec_():
             name = newDialog.lineEditName.text()
             mainClass = str(newDialog.comboClass.currentText())
@@ -159,25 +225,16 @@ class MainWindow(QMainWindow, MainWindowUI):
             saveParser.set('global', 'name', name)
             saveParser.set('global', 'class', str(build.lineEditClass.text()))
             saveParser.set('global', 'job', str(build.lineEditSubClass.text()))
+            saveParser.set('global', 'path', build.path)
             saveParser.set('global', 'level', str(build.spinBoxLevel.value()))
 
-            saveParser.add_section('SP')
-            saveParser.add_section('TP')
-            saveParser.add_section('QP')
-            for skillBox in build.spDict.values():
+            saveParser.add_section('Skills')
+            for skillBox in build.spDict.values() + \
+                            build.tpDict.values() + \
+                            build.qpDict.values():
                 for skill in skillBox.skills.values():
                     if skill.spinBoxLevel.value() > 0:
-                        saveParser.set('SP', skill.name,
-                                       str(skill.spinBoxLevel.value()))
-            for skillBox in build.tpDict.values():
-                for skill in skillBox.skills.values():
-                    if skill.spinBoxLevel.value() > 0:
-                        saveParser.set('TP', skill.name,
-                                       str(skill.spinBoxLevel.value()))
-            for skillBox in build.qpDict.values():
-                for skill in skillBox.skills.values():
-                    if skill.spinBoxLevel.value() > 0:
-                        saveParser.set('QP', skill.name,
+                        saveParser.set('Skills', skill.name,
                                        str(skill.spinBoxLevel.value()))
 
             path = os.path.join('saves', name + '.absf')
@@ -190,6 +247,40 @@ class MainWindow(QMainWindow, MainWindowUI):
         path = os.path.join('saves', 'default.abpf')
         with open(path, 'w') as f:
             pathSaveParser.write(f)
+
+    @pyqtSlot()
+    def loadBuild(self, path=None):
+        if path == None:
+            path = QFileDialog.getOpenFileName(caption='Select build',
+                                               filter='*.absf',
+                                               directory='saves')
+        loadParser = ConfigParser.SafeConfigParser()
+        loadParser.read(str(path))
+        picturePath = loadParser.get('global', 'path')
+        mainClass = loadParser.get('global', 'class')
+        subClass = loadParser.get('global', 'job')
+        if not os.path.isfile(picturePath):
+            picturePath = os.path.join("classes", mainClass, subClass + '.png')
+
+        charBuild = self.createNewChar(loadParser.get('global', 'name'),
+                                       mainClass, subClass, picturePath)
+
+        charBuild.spinBoxLevel.setValue(int(loadParser.get('global', 'level')))
+
+        for name in loadParser.options('Skills'):
+            level = int(loadParser.get('Skills', name))
+            skill = charBuild.findSkillByName(name)
+            if skill != None:
+                skill.spinBoxLevel.setValue(level)
+            else:
+                print name + ' could not be set, value is ' + str(level)
+
+    @pyqtSlot('QEvent')
+    def closeEvent(self, event):
+        print self.size()
+        self.saveCurrentSettings()
+        self.saveBuilds()
+        event.accept()
 
 
 if __name__ == '__main__':

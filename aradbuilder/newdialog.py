@@ -4,18 +4,18 @@ import os
 from PyQt4.QtCore import pyqtSlot
 from PyQt4.QtGui import QDialog, QFileDialog, QPixmap, QMessageBox, QMovie
 
-import paths
 from pyui.NewChar_ui import Ui_NewCharacter as NewCharUI
 
 
 class NewDialog(QDialog, NewCharUI):
 
-    def __init__(self, parent=None):
+    def __init__(self, names, parent=None):
         super(NewDialog, self).__init__(parent)
         self.setupUi(self)
 
-        self.lineEditName.setText('testChar')
+        self.nameList = names
 
+        self.lineEditName.setText('testChar' + str(len(self.nameList)))
         classParser = ConfigParser.SafeConfigParser()
         classParser.read(os.path.join('classes', 'classes.abc'))
         self.comboClass.addItems(classParser.sections())
@@ -100,8 +100,14 @@ class NewDialog(QDialog, NewCharUI):
     def checkAccept(self):
         if self.lineEditName.text() == '':
             msgBox = QMessageBox()
-            msgBox.setWindowTitle('No Name')
-            msgBox.setText('Your character needs a Name.')
+            msgBox.setWindowTitle('No name')
+            msgBox.setText('Your character needs a name.')
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.exec_()
+        elif self.lineEditName.text() in self.nameList:
+            msgBox = QMessageBox()
+            msgBox.setWindowTitle('Name already exists')
+            msgBox.setText('Your character needs a UNIQUE name')
             msgBox.setIcon(QMessageBox.Warning)
             msgBox.exec_()
         else:
