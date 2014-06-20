@@ -8,3 +8,223 @@
 ;inactive = .png
 ;requirements = {}
 ;desc = 
+
+[Heavy Firearm Technique]
+start = 20
+max = 1
+cost1 = 0
+cost = 0
+interval = 1
+active = 114.png
+inactive = 115.png
+requirements = {}
+desc = Enhances skills that deal with Heavy Firearms, and grants a level to the following skills: M-137 Gatling Gun, M-3 Flamethrower, BBQ, Fire Pillar, Flame Pillar, Laser Rifle, Steyr AMR, FM-31 Grenade Launcher, FM-92 Stinger, FM-92 MK2 Lancer, Quantum Bomb, X-1 Extruder, Satellite Beam and Ancient Trigger.
+
+[Hand Cannon Mastery]
+start = 18
+max = 10
+cost1 = 20
+cost = 20
+interval = 3
+active = 134.png
+inactive = 135.png
+requirements = {}
+desc = Increases both damage and attack speed of a hand cannon weapon.
+
+[Heavy Firearm Mastery]
+start = 20
+max = 10
+cost1 = 20
+cost = 20
+interval = 3
+active = 122.png
+inactive = 123.png
+requirements = {}
+desc = Decreases MP consumption of M-137 Gatling Gun, M-3 Flamethrower, BBQ, Steyr AMR, Fire Pillar, Laser Rifle, FM-92 Stinger, Quantum Bomb, x-1 Extruder, and Satellite Beam.
+
+[Sub Weapon Crusher]
+start = 20
+max = 1
+cost1 = 0
+cost = 0
+interval = 1
+active = 76.png
+inactive = 77.png
+requirements = {'M-137 Gatling Gun': 1}
+desc = When drawing any heavy weaponry or sub weapons, the weapon will deal damage and push back any nearby targets.
+
+[Cannon Ball]
+start = 18
+max = 30
+cost1 = 20
+cost = 20
+interval = 2
+active = 194.png
+inactive = 195.png
+requirements = {}
+desc = Can only be used with a hand cannon weapon. Fires ball of energy, inflicting non-elemental physical damage on target. Longer the user charges up, faster the speed and farther it travels.
+
+[Cancel Cannon Ball]
+start = 30
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 242.png
+inactive = 243.png
+requirements = {'Cannon Ball': 5}
+desc = Cancels normal attacks to use Cannon Ball right away.
+
+[Fire Pillar]
+start = 30
+max = 30
+cost1 = 30
+cost = 30
+interval = 2
+active = 78.png
+inactive = 79.png
+requirements = {'M-3 Flamethrower': 5}
+desc = Improved version of Flamethrower. Deals fire element physical damage to all targets. It covers less vertical area, but has long horizontal reach. Lasts 6 seconds, while dealing damage every 0.3 second. Hit stun time lasts longer than Flamethrower. Humanoid targets receive 70%% deducted damage. You can move with the arrow keys while using this move.
+
+[Cancel M-3 Flamethrower]
+start = 25
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 60.png
+inactive = 61.png
+requirements = {'M-3 Flamethrower': 5}
+desc = Cancels normal attacks to use Flamethrower or Flame Blast right away.
+
+[Steyr AMR]
+start = 20
+max = 30
+cost1 = 25
+cost = 25
+interval = 2
+active = 52.png
+inactive = 53.png
+requirements = {}
+desc = Fires a missile that attaches itself to the target. Then, the missile blows up one second later.
+
+[Cancel Steyr AMR]
+start = 30
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 200.png
+inactive = 201.png
+requirements = {'Steyr AMR': 5}
+desc = Cancels normal attacks to use Steyr AMR right away.
+
+[Eagle Eye]
+start = 30
+max = 10
+cost1 = 30
+cost = 30
+interval = 3
+active = 150.png
+inactive = 151.png
+requirements = {}
+desc = Increases damage and accuracy of heavy weaponry briefly.
+
+[FM-31 Grenade Launcher]
+start = 35
+max = 30
+cost1 = 35
+cost = 35
+interval = 2
+active = 342.png
+inactive = 343.png
+requirements = {'M-137 Gatling Gun': 5, 'Steyr AMR': 3}
+desc = Quickly fires 5 rounds in an arc. Shots explode on impact, inflicting splash damage on nearby enemies.
+
+[Laser Rifle]
+start = 25
+max = 30
+cost1 = 25
+cost = 25
+interval = 2
+active = 18.png
+inactive = 19.png
+requirements = {}
+desc = Fires energy beam; it inflicts lightning element physical damage to all targets in its horizontal path.
+
+[Cancel Laser Rifle]
+start = 35
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 198.png
+inactive = 199.png
+requirements = {'Laser Rifle': 5}
+desc = Cancels normal attacks to use laser rifle right away.
+
+[Charge Laser Rifle]
+start = 35
+max = 1
+cost1 = 50
+cost = 50
+interval = 1
+active = 88.png
+inactive = 89.png
+requirements = {'Laser Rifle': 5}
+desc = Allows user to charge up Laser Rifle before firing.
+
+[FM-92 MK2 Lancer]
+start = 35
+max = 30
+cost1 = 40
+cost = 40
+interval = 2
+active = 240.png
+inactive = 241.png
+requirements = {}
+desc = Fires a projectile into the air which breaks into smaller missiles that nukes the ground. Holding onto the skill key will let the projectile stay intact until you let go. It automatically breaks into missiles if it reaches the farthest point of your screen. Similar to the Male Launcher's Stinger except it looks like a field of explosions rather than several pillars.
+
+[Quantum Bomb]
+start = 40
+max = 30
+cost1 = 50
+cost = 50
+interval = 2
+active = 98.png
+inactive = 99.png
+requirements = {'Laser Rifle': 5}
+desc = Calls for aerial support and drop a giant bomb on the designated area. It inflicts heavy lightning physical damage to targets, and cause shock status alignment with certain chance. The user can decide the landing area with directional key before the bomb drops.
+
+[X-1 Extruder]
+start = 45
+max = 20
+cost1 = 60
+cost = 60
+interval = 2
+active = 172.png
+inactive = 173.png
+requirements = {'Cannon Ball': 5, 'Charge Laser Rifle': 1, 'Quantum Bomb': 3}
+desc = Compresses mass energy and releases it to deal heavy non-element physical damage. Pressing either up or down directional button can slightly adjust its trajectory. Once max charge is reached, explosion size and damage will not increase if you hold the skill for any longer, but the skill will begin to vacuum in nearby enemies. Extruder will be forcefully released at some point should the user continues to charge after its max point. After releasing Extruder, enemies who come in contact with the projectile will be "grabbed" by it. This will break super armor.
+
+[Overheat]
+start = 50
+max = 3
+cost1 = 0
+cost = 30
+interval = 3
+active = 254.png
+inactive = 255.png
+requirements = {}
+desc = The Demolitionist's Awakening Passive that increases the damage rate of M-137 Gatling Gun, M-3 Flamethrower, BBQ, Steyr AMR, Laser Rifle, Fire Pillar, FM-92 MK2 Lancer by overheating the Demolitionist's Heavy Cannons. This causes them to lose durability twice as fast.
+
+[Ancient Trigger]
+start = 50
+max = 10
+cost1 = 50
+cost = 50
+interval = 2
+active = 252.png
+inactive = 253.png
+requirements = {'Laser Rifle': 5, 'FM-92 MK2 Lancer': 5}
+desc = Prepares a giant cannon then fires four beams that draws the enemies in, then fires a laser.

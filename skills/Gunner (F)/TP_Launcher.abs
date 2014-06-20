@@ -8,3 +8,113 @@
 ;inactive = .png
 ;requirements = {}
 ;desc = 
+
+[M-3 Flamethrower Upgrade]
+start = 50
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 306.png
+inactive = 307.png
+requirements = {'M-3 Flamethrower': 10}
+desc = Increases Damage, Size and Hit Stun of M-3 Flamethrower.
+
+[Steyr AMR Upgrade]
+start = 65
+max = 3
+cost1 = 1
+cost = 1
+interval = 5
+active = 296.png
+inactive = 297.png
+requirements = {'Steyr AMR': 10}
+desc = Increases the Damage and Explosion Damage of Steyr AMR. Adds Bleeding Chance.
+
+[FM-92 MK2 Lancer Upgrade]
+start = 65
+max = 1
+cost1 = 2
+cost = 2
+interval = 1
+active = 330.png
+inactive = 331.png
+requirements = {'FM-92 MK2 Lancer': 10}
+desc = Increases the Number of Hits and Missiles of [FM-92 MK2 Lancer.
+
+[Laser Rifle Upgrade]
+start = 50
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 362.png
+inactive = 363.png
+requirements = {'Laser Rifle': 10}
+desc = Increases the Size and Strenth of Laser Rifle.
+
+[X-1 Extruder Upgrade]
+start = 65
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 366.png
+inactive = 367.png
+requirements = {'X-1 Extruder': 10}
+desc = Increases Range and Strength of X-1 Extruder.
+
+[Cannon Ball Upgrade]
+start = 50
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 368.png
+inactive = 369.png
+requirements = {'Cannon Ball': 10}
+desc = Increases the Range and Strength of Cannon Ball.
+
+[Fire Pillar Upgrade]
+start = 50
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 370.png
+inactive = 371.png
+requirements = {'Fire Pillar': 10}
+desc = Increase Movement Speed and Strenght of Fire Pillar.
+
+[Quantum Bomb Upgrade]
+start = 65
+max = 3
+cost1 = 2
+cost = 2
+interval = 5 
+active = 364.png
+inactive = 365.png
+requirements = {'Quantum Bomb': 10}
+desc = Increases the Electrocution Level and Strength of Quantum Bomb.
+
+[Arctic Booster]
+start = 60
+max = 3
+cost1 = 2
+cost = 2
+interval = 5
+active = 270.png
+inactive = 271.png
+requirements = {'Fire Pillar': 5}
+desc = Ice Fire Pillar.
+
+[FM-92 MK2 Lancer SW]
+start = 70
+max = 3
+cost1 = 3
+cost = 3
+interval = 5
+active = 268.png
+inactive = 269.png
+requirements = {'FM-92 MK2 Lancer': 5}
+desc = N/A

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\Build.ui'
+# Form implementation generated from reading ui file '.\ui\Build.ui'
 #
-# Created: Tue Jun 10 00:13:29 2014
+# Created: Thu Jun 19 16:09:53 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,7 +33,7 @@ class Ui_WidgetBuild(object):
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.labelCharPicture = QtGui.QLabel(WidgetBuild)
+        self.labelCharPicture = ClickableLabel(WidgetBuild)
         self.labelCharPicture.setMinimumSize(QtCore.QSize(300, 200))
         self.labelCharPicture.setMaximumSize(QtCore.QSize(300, 200))
         self.labelCharPicture.setFrameShape(QtGui.QFrame.StyledPanel)
@@ -268,7 +268,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaQP.setWidgetResizable(True)
         self.scrollAreaQP.setObjectName(_fromUtf8("scrollAreaQP"))
         self.scrollAreaWidgetContents_3 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 778, 357))
         self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
         self.scrollAreaQP.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_6.addWidget(self.scrollAreaQP, 0, 0, 1, 1)
@@ -284,7 +284,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaTP.setWidgetResizable(True)
         self.scrollAreaTP.setObjectName(_fromUtf8("scrollAreaTP"))
         self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 778, 357))
         self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
         self.scrollAreaTP.setWidget(self.scrollAreaWidgetContents_2)
         self.gridLayout_4.addWidget(self.scrollAreaTP, 0, 0, 1, 1)
@@ -300,7 +300,7 @@ class Ui_WidgetBuild(object):
         self.scrollAreaWkillTree.setWidgetResizable(True)
         self.scrollAreaWkillTree.setObjectName(_fromUtf8("scrollAreaWkillTree"))
         self.scrollAreaWidgetContents_4 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 100, 30))
+        self.scrollAreaWidgetContents_4.setGeometry(QtCore.QRect(0, 0, 778, 357))
         self.scrollAreaWidgetContents_4.setObjectName(_fromUtf8("scrollAreaWidgetContents_4"))
         self.scrollAreaWkillTree.setWidget(self.scrollAreaWidgetContents_4)
         self.gridLayout_5.addWidget(self.scrollAreaWkillTree, 0, 0, 1, 1)
@@ -348,13 +348,4 @@ class Ui_WidgetBuild(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabSkillTree), _translate("WidgetBuild", "SkillTree", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabQuests), _translate("WidgetBuild", "Quests", None))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    WidgetBuild = QtGui.QWidget()
-    ui = Ui_WidgetBuild()
-    ui.setupUi(WidgetBuild)
-    WidgetBuild.show()
-    sys.exit(app.exec_())
-
+from aradbuilder.clickablelabel import ClickableLabel

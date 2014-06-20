@@ -15,7 +15,7 @@ class NewDialog(QDialog, NewCharUI):
 
         self.nameList = names
 
-        self.lineEditName.setText('testChar' + str(len(self.nameList)))
+#         self.lineEditName.setText('testChar' + str(len(self.nameList)))
         classParser = ConfigParser.SafeConfigParser()
         classParser.read(os.path.join('classes', 'classes.abc'))
         self.comboClass.addItems(classParser.sections())
@@ -27,8 +27,6 @@ class NewDialog(QDialog, NewCharUI):
         self.updateSubClassPictures()
 
         self.createConnections()
-
-#         print paths.getPicturePath('char', 'Gunner (F)')
 
     def extractSubclasses(self, classParser):
         subclassDict = {}
@@ -95,6 +93,7 @@ class NewDialog(QDialog, NewCharUI):
             subTitle.start()
             if self.lineEditCustomPicture.text() == '':
                 self.labelCharPicture.setPixmap(QPixmap(path + '.png'))
+#         self.lineEditName.setText(self.comboSubClass.currentText())
 
     @pyqtSlot()
     def checkAccept(self):

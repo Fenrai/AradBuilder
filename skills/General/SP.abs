@@ -9,6 +9,28 @@
 ;requirements = {}
 ;desc = 
 
+[Backstep]
+start = 1
+max = 1
+cost1 = 0
+cost = 0
+interval = 1
+active = 0.png
+inactive = 1.png
+requirements = {}
+desc = Hops slightly backward to evade enemy attacks.
+
+[Cancel - Backstep]
+start = 1
+max = 1
+cost1 = 0
+cost = 0
+interval = 1
+active = 2.png
+inactive = 3.png
+requirements = {}
+desc = Cancels normal attacks to cast the Backstep.
+
 [Cancel - Item Throw]
 start = 20
 max = 1

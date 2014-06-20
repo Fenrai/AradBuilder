@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\NewChar.ui'
+# Form implementation generated from reading ui file '.\ui\NewChar.ui'
 #
-# Created: Sun Jun 01 20:53:41 2014
+# Created: Thu Jun 19 16:09:55 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -51,7 +51,8 @@ class Ui_NewCharacter(object):
         self.labelClassPicture.setMinimumSize(QtCore.QSize(81, 58))
         self.labelClassPicture.setMaximumSize(QtCore.QSize(81, 58))
         self.labelClassPicture.setFrameShape(QtGui.QFrame.Panel)
-        self.labelClassPicture.setFrameShadow(QtGui.QFrame.Sunken)
+        self.labelClassPicture.setFrameShadow(QtGui.QFrame.Raised)
+        self.labelClassPicture.setLineWidth(2)
         self.labelClassPicture.setText(_fromUtf8(""))
         self.labelClassPicture.setObjectName(_fromUtf8("labelClassPicture"))
         self.gridLayout.addWidget(self.labelClassPicture, 0, 2, 2, 1, QtCore.Qt.AlignHCenter)
@@ -126,14 +127,4 @@ class Ui_NewCharacter(object):
         self.toolButtonCustomPath.setText(_translate("NewCharacter", "...", None))
         self.buttonCancel.setText(_translate("NewCharacter", "Cancel", None))
         self.pushButtonCreate.setText(_translate("NewCharacter", "Create", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    NewCharacter = QtGui.QDialog()
-    ui = Ui_NewCharacter()
-    ui.setupUi(NewCharacter)
-    NewCharacter.show()
-    sys.exit(app.exec_())
 

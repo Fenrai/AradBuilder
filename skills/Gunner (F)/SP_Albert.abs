@@ -1,0 +1,59 @@
+;[]
+;job = 
+;start = 
+;max = 
+;cost1 = 
+;cost = 
+;interval = 
+;active = .png
+;inactive = .png
+;requirements = {}
+;desc = 
+
+[Backup Land Runner]
+job = Mechanic
+start = 24
+max = 5
+cost1 = 50
+cost = 50
+interval = 2
+active = 108.png
+inactive = 109.png
+requirements = {'RX-78 Land Runner': 5}
+desc = Allows you to summon a Land Runner by being hit, at a certain rate.
+
+[Steyr AMR]
+job = Launcher
+start = 24
+max = 10
+cost1 = 50
+cost = 50
+interval = 2
+active = 52.png
+inactive = 53.png
+requirements = {}
+desc = Fires a missile that attaches itself to the target. Then, the missile blows up one second later.
+
+[Fastest Gun]
+job = Ranger
+start = 24
+max = 5
+cost1 = 50
+cost = 50
+interval = 3
+active = 42.png
+inactive = 43.png
+requirements = {}
+desc = Draws a gun quickly and fires one shot. Consumes MP on activation and can be connected along with normal hit combo.
+
+[Freezing Bullet]
+job = Spitfire
+start = 24
+max = 10
+cost1 = 50
+cost = 50
+interval = 2
+active = 2.png
+inactive = 3.png
+requirements = {}
+desc = Applies water attribute to 20 bullets and increases magical attack. Inflicts additional damage to humanoid and beast type. Causes freezing status with certain chance.

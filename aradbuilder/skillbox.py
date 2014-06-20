@@ -37,6 +37,9 @@ class SkillBox(QGroupBox, SkillBoxUi):
         if main == 'General':
             filePath = os.path.join(mainDir, points + '.abs')
             picDir = os.path.join(mainDir, sub)
+        elif self.title() == 'Albert':
+            filePath = os.path.join(mainDir, 'SP_Albert.abs')
+            picDir = os.path.join(mainDir, 'Common')
         else:
             filePath = os.path.join(mainDir, points + '_' + sub + '.abs')
             picDir = os.path.join(mainDir, sub)
@@ -44,7 +47,14 @@ class SkillBox(QGroupBox, SkillBoxUi):
         skillParser = ConfigParser.SafeConfigParser()
         skillParser.read(filePath)
 
-        for skillName in skillParser.sections():
+        skills = skillParser.sections()
+
+        if self.title() == 'Albert':
+            for skill in skills:
+                if skillParser.get(skill, 'job') == sub:
+                    skills.remove(skill)
+
+        for skillName in skills:
             skill = Skill(skillName, skillParser, picDir)
             self.mainLayout.addWidget(skill)
             self.skills[skillName] = skill

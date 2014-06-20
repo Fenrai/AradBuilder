@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/MainWindow.ui'
+# Form implementation generated from reading ui file '.\ui\MainWindow.ui'
 #
-# Created: Wed Jun  4 18:20:35 2014
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Thu Jun 19 16:09:55 2014
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -32,7 +41,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.stackedBuilds, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 29))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
@@ -74,9 +83,12 @@ class Ui_MainWindow(object):
         self.actionShowMax.setCheckable(True)
         self.actionShowMax.setChecked(True)
         self.actionShowMax.setObjectName(_fromUtf8("actionShowMax"))
+        self.actionLoad = QtGui.QAction(MainWindow)
+        self.actionLoad.setObjectName(_fromUtf8("actionLoad"))
         self.menuFile.addAction(self.actionNew)
         self.menuFile.addAction(self.actionSave)
         self.menuFile.addAction(self.actionSaveAs)
+        self.menuFile.addAction(self.actionLoad)
         self.menuEdit.addAction(self.actionAdd)
         self.menuEdit.addAction(self.actionCopy)
         self.menuEdit.addAction(self.actionPaste)
@@ -95,38 +107,30 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "AradBuilder", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuFile.setTitle(QtGui.QApplication.translate("MainWindow", "File", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuEdit.setTitle(QtGui.QApplication.translate("MainWindow", "Edit", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuConfugure.setTitle(QtGui.QApplication.translate("MainWindow", "Configure", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuAbout.setTitle(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionNew.setText(QtGui.QApplication.translate("MainWindow", "New", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionNew.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Shift+N", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionSave.setText(QtGui.QApplication.translate("MainWindow", "Save", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionSave.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+S", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionSaveAs.setText(QtGui.QApplication.translate("MainWindow", "SaveAs", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionSaveAs.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Shift+S", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionAdd.setText(QtGui.QApplication.translate("MainWindow", "Add", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionAdd.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+N", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionCopy.setText(QtGui.QApplication.translate("MainWindow", "Copy", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionCopy.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+C", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionPaste.setText(QtGui.QApplication.translate("MainWindow", "Paste", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionPaste.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+V", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionCut.setText(QtGui.QApplication.translate("MainWindow", "Cut", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionCut.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+X", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionDelete.setText(QtGui.QApplication.translate("MainWindow", "Delete", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionDelete.setShortcut(QtGui.QApplication.translate("MainWindow", "Shift+Del", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionShowTotal.setText(QtGui.QApplication.translate("MainWindow", "Show Total", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionShowCost.setText(QtGui.QApplication.translate("MainWindow", "Show Cost", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionShowMax.setText(QtGui.QApplication.translate("MainWindow", "Show Max", None, QtGui.QApplication.UnicodeUTF8))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+        MainWindow.setWindowTitle(_translate("MainWindow", "AradBuilder", None))
+        self.menuFile.setTitle(_translate("MainWindow", "File", None))
+        self.menuEdit.setTitle(_translate("MainWindow", "Edit", None))
+        self.menuConfugure.setTitle(_translate("MainWindow", "Configure", None))
+        self.menuAbout.setTitle(_translate("MainWindow", "About", None))
+        self.actionNew.setText(_translate("MainWindow", "New", None))
+        self.actionNew.setShortcut(_translate("MainWindow", "Ctrl+Shift+N", None))
+        self.actionSave.setText(_translate("MainWindow", "Save", None))
+        self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S", None))
+        self.actionSaveAs.setText(_translate("MainWindow", "SaveAs", None))
+        self.actionSaveAs.setShortcut(_translate("MainWindow", "Ctrl+Shift+S", None))
+        self.actionAdd.setText(_translate("MainWindow", "Add", None))
+        self.actionAdd.setShortcut(_translate("MainWindow", "Ctrl+N", None))
+        self.actionCopy.setText(_translate("MainWindow", "Copy", None))
+        self.actionCopy.setShortcut(_translate("MainWindow", "Ctrl+C", None))
+        self.actionPaste.setText(_translate("MainWindow", "Paste", None))
+        self.actionPaste.setShortcut(_translate("MainWindow", "Ctrl+V", None))
+        self.actionCut.setText(_translate("MainWindow", "Cut", None))
+        self.actionCut.setShortcut(_translate("MainWindow", "Ctrl+X", None))
+        self.actionDelete.setText(_translate("MainWindow", "Delete", None))
+        self.actionDelete.setShortcut(_translate("MainWindow", "Shift+Del", None))
+        self.actionShowTotal.setText(_translate("MainWindow", "Show Total", None))
+        self.actionShowCost.setText(_translate("MainWindow", "Show Cost", None))
+        self.actionShowMax.setText(_translate("MainWindow", "Show Max", None))
+        self.actionLoad.setText(_translate("MainWindow", "Load", None))
+        self.actionLoad.setShortcut(_translate("MainWindow", "Ctrl+L", None))
 

@@ -1,6 +1,6 @@
 from PyQt4.QtCore import pyqtSlot, pyqtSignal
 from PyQt4.QtGui import QWidget, QPixmap, QHBoxLayout, QSpacerItem, QSizePolicy, \
-    QVBoxLayout
+    QVBoxLayout, QFileDialog
 
 from aradbuilder.questwidget import QuestWidget
 from aradbuilder.skillbox import SkillBox
@@ -15,14 +15,14 @@ class Build(QWidget, BuildUi):
         self.setupUi(self)
 
         self.lineEditName.setText(name)
-        self._mainWindow = mainWindow
+        self.mainWindow = mainWindow
         self.mainClass = mainClass
         self.subClass = subClass
         self.path = path
         self.lineEditClass.setText(mainClass)
         self.lineEditSubClass.setText(subClass)
         self.spinBoxLevel.lineEdit().setReadOnly(True)
-        self.labelCharPicture.setPixmap(QPixmap(path))
+        self.labelCharPicture.setPixmap(getPixmap(path))
 
         self.createObjects()
         self.fillSpTab()
@@ -34,7 +34,6 @@ class Build(QWidget, BuildUi):
         self.connectRequiredSkills()
 
         self.updateTotalPoints(self.spinBoxLevel.value())
-
 
     def createObjects(self):
         self.questWidget = QuestWidget()
@@ -56,22 +55,25 @@ class Build(QWidget, BuildUi):
                         self.qpDict.values():
             for skill in skillBox.skills.values():
                 self.spinBoxLevel.valueChanged.connect(skill.updateMax)
+        self.labelCharPicture.doubleClicked.connect(self.changePicture)
 
     def fillSpTab(self):
         spWidget = QWidget()
         spLayout = QVBoxLayout()
 
         generalBox = SkillBox('General', 'SP', 'General', 'SP')
+        albertBox = SkillBox('Albert', 'SP', self.mainClass, self.subClass)
         commonBox = SkillBox('Common', 'SP', self.mainClass, 'Common')
         classBox = SkillBox('Class', 'SP', self.mainClass, self.subClass)
 
-        spLayout.addLayout(self.getLayout(generalBox))
-        spLayout.addLayout(self.getLayout(commonBox))
-        spLayout.addLayout(self.getLayout(classBox))
+        spLayout.addLayout(getLayout(generalBox, albertBox))
+        spLayout.addLayout(getLayout(commonBox))
+        spLayout.addLayout(getLayout(classBox))
         spLayout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Minimum,
                                            QSizePolicy.Expanding))
 
         self.spDict['General'] = generalBox
+        self.spDict['Albert'] = albertBox
         self.spDict['Common'] = commonBox
         self.spDict['Class'] = classBox
 
@@ -89,9 +91,9 @@ class Build(QWidget, BuildUi):
         commonBox = SkillBox('Common', 'TP', self.mainClass, 'Common')
         classBox = SkillBox('Class', 'TP', self.mainClass, self.subClass)
 
-        tpLayout.addLayout(self.getLayout(generalBox))
-        tpLayout.addLayout(self.getLayout(commonBox))
-        tpLayout.addLayout(self.getLayout(classBox))
+        tpLayout.addLayout(getLayout(generalBox))
+        tpLayout.addLayout(getLayout(commonBox))
+        tpLayout.addLayout(getLayout(classBox))
         tpLayout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Minimum,
                                            QSizePolicy.Expanding))
 
@@ -111,7 +113,7 @@ class Build(QWidget, BuildUi):
 
         generalBox = SkillBox('General', 'QP', 'General', 'QP')
 
-        qpLayout.addLayout(self.getLayout(generalBox))
+        qpLayout.addLayout(getLayout(generalBox))
         qpLayout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Minimum,
                                            QSizePolicy.Expanding))
 
@@ -134,15 +136,6 @@ class Build(QWidget, BuildUi):
         # until further notice
         self.tabWidget.removeTab(3)
 
-    def getLayout(self, skillBox):
-        layout = QHBoxLayout()
-        layout.addWidget(skillBox)
-        layout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Expanding,
-                                         QSizePolicy.Minimum))
-        layout.setContentsMargins(0, 0, 0, 0)
-
-        return layout
-
     def findSkillByName(self, name):
         for skillBox in self.spDict.values() + \
                         self.tpDict.values() + \
@@ -162,13 +155,14 @@ class Build(QWidget, BuildUi):
                     req = self.findSkillByName(name)
                     req.dependants.setdefault(skill.req[name], []).append(skill)
                     skill.requirements[req] = skill.req[name]
+
     @pyqtSlot(int)
     def updateTotalPoints(self, level=0):
         if level == 0:
             level = self.spinBoxLevel.value()
-        self.spinBoxTpTotal.setValue(self._mainWindow.dictTP[level] +
+        self.spinBoxTpTotal.setValue(self.mainWindow.dictTP[level] +
                                      self.questWidget.getTotalTP())
-        self.spinBoxSpTotal.setValue(self._mainWindow.dictSP[level] +
+        self.spinBoxSpTotal.setValue(self.mainWindow.dictSP[level] +
                                      self.questWidget.getTotalSP())
         self.spinBoxQpTotal.setValue(self.questWidget.getTotalQP())
 
@@ -216,4 +210,43 @@ class Build(QWidget, BuildUi):
     def updateName(self):
         self.nameChanged.emit(str(self.lineEditName.text()))
 
+    @pyqtSlot()
+    def changePicture(self):
+        path = QFileDialog.getOpenFileName(caption='Path to your picture',
+                                            filter='*.png *.jpg *.bmp *.gif')
+        if path != '':
+            self.path = str(path)
+            self.labelCharPicture.setPixmap(self.getPixmap(path))
+
+def getPixmap(path):
+    pixmap = QPixmap(path)
+    if pixmap.width() > 300 or pixmap.height() > 200:
+        return pixmap.scaled(300, 200)
+    return pixmap
+
+def getLayout(skillBox1, skillBox2=None):
+    layout = QHBoxLayout()
+    layout.addWidget(skillBox1)
+    layout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Expanding,
+                                     QSizePolicy.Minimum))
+    if skillBox2:
+        layout.addWidget(skillBox2)
+        layout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Expanding,
+                                         QSizePolicy.Minimum))
+    layout.setContentsMargins(0, 0, 0, 0)
+
+    return layout
+
+def copyBuild(original, name):
+    copy = Build(name, original.mainClass, original.subClass, original.path,
+                 original.mainWindow)
+    for skillBox in original.spDict.values() + \
+                            original.tpDict.values() + \
+                            original.qpDict.values():
+        for skill in skillBox.skills.values():
+            value = skill.spinBoxLevel.value()
+            if value > 0:
+#                 cSkill = copy.findSkillByName(skill.name)
+                copy.findSkillByName(skill.name).spinBoxLevel.setValue(value)
+    return copy
 

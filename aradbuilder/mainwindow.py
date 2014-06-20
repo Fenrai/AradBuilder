@@ -18,12 +18,14 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import ConfigParser
+import copy
 import os
 
-from PyQt4.QtCore import (pyqtSlot)
-from PyQt4.QtGui import (QMainWindow, QApplication, QListWidgetItem,
-    QMessageBox, QFileDialog, QIcon)
+from PyQt4.QtCore import pyqtSlot
+from PyQt4.QtGui import QMainWindow, QApplication, QListWidgetItem, \
+    QMessageBox, QFileDialog, QIcon, QInputDialog
 
+from aradbuilder.splashscreen import SplashScreen
 import build
 import newdialog
 from pyui.MainWindow_ui import Ui_MainWindow as MainWindowUI
@@ -34,7 +36,26 @@ def launchGui(argv=None):
         argv = sys.argv()
     app = QApplication(argv)
     window = MainWindow()
+    splashScreen = SplashScreen()
+    splashScreen.show();
+    app.processEvents()
 
+    loadParser = ConfigParser.SafeConfigParser()
+    loadParser.read(os.path.join('saves', 'default.abpf'))
+    options = loadParser.options('builds')
+    parts = len(options)
+    splashScreen.setPixmap(build.getPixmap('splash.jpg'))
+    app.processEvents()
+    for i, option in enumerate(options):
+        splashScreen.showMessage('Loading build ' + str(i + 1) + '/' + str(parts))
+        splashScreen.progressBar.setValue(100 * i / parts)
+        app.processEvents()
+        window.loadBuild(loadParser.get('builds', option), splashScreen)
+        app.processEvents()
+
+    app.processEvents()
+    window.loadSettings()
+    splashScreen.close()
     window.show()
 
     app.exec_()
@@ -46,12 +67,7 @@ class MainWindow(QMainWindow, MainWindowUI):
         self.setupUi(self)
         self.createDictionaries()
         self.createConnections()
-        loadParser = ConfigParser.SafeConfigParser()
-        loadParser.read(os.path.join('saves', 'default.abpf'))
-        for option in loadParser.options('builds'):
-            self.loadBuild(loadParser.get('builds', option))
         self.setWindowIcon(QIcon(os.path.join('ARAD.ico')))
-        self.loadSettings()
 
     def createDictionaries(self):
         self.dictSP = self.getPointsDict('SP')
@@ -64,6 +80,8 @@ class MainWindow(QMainWindow, MainWindowUI):
         self.actionShowCost.toggled.connect(self.updateCostVisibility)
         self.actionShowTotal.toggled.connect(self.updateTotalVisibility)
         self.actionLoad.triggered.connect(self.loadBuild)
+        self.actionDelete.triggered.connect(self.deleteBuild)
+        self.actionCopy.triggered.connect(self.copyBuild)
 
     def getPointsDict(self, key):
         pDict = {}
@@ -114,6 +132,10 @@ class MainWindow(QMainWindow, MainWindowUI):
         settingsParser.set('options', 'max',
                            str(self.actionShowMax.isChecked()))
 
+        settingsParser.add_section('global')
+        settingsParser.set('global', 'index',
+                           str(self.listBuilds.currentRow()))
+
         path = os.path.join('saves', 'settings.absf')
         with open(path, 'w') as f:
             settingsParser.write(f)
@@ -131,6 +153,9 @@ class MainWindow(QMainWindow, MainWindowUI):
                                                                  'cost'))
         self.actionShowMax.setChecked(settingsParser.getboolean('options',
                                                                 'max'))
+        self.listBuilds.setCurrentRow(int(settingsParser.get('global',
+                                                             'index')))
+
     @pyqtSlot(str)
     def updateListName(self, name):
         if name == '':
@@ -249,7 +274,7 @@ class MainWindow(QMainWindow, MainWindowUI):
             pathSaveParser.write(f)
 
     @pyqtSlot()
-    def loadBuild(self, path=None):
+    def loadBuild(self, path=None, splash=None):
         if path == None:
             path = QFileDialog.getOpenFileName(caption='Select build',
                                                filter='*.absf',
@@ -261,6 +286,9 @@ class MainWindow(QMainWindow, MainWindowUI):
         subClass = loadParser.get('global', 'job')
         if not os.path.isfile(picturePath):
             picturePath = os.path.join("classes", mainClass, subClass + '.png')
+
+        if splash:
+            splash.setPixmap(build.getPixmap(picturePath))
 
         charBuild = self.createNewChar(loadParser.get('global', 'name'),
                                        mainClass, subClass, picturePath)
@@ -275,9 +303,29 @@ class MainWindow(QMainWindow, MainWindowUI):
             else:
                 print name + ' could not be set, value is ' + str(level)
 
+    @pyqtSlot()
+    def copyBuild(self):
+        result = QInputDialog.getText(self, 'New Name',
+                                    'Your new build needs a unique name')
+        if result[0] != '' and result[1] == True:
+            name = str(result[0])
+            copy = build.copyBuild(self.stackedBuilds.currentWidget(), name)
+            self.setTotalVisibility(self.actionShowTotal.isChecked(), copy)
+            self.setMaxVisibility(self.actionShowMax.isChecked(), copy)
+            self.setCostVisibility(self.actionShowCost.isChecked(), copy)
+            self.stackedBuilds.addWidget(copy)
+            self.listBuilds.addItem(QListWidgetItem(name))
+            self.listBuilds.setCurrentRow(self.listBuilds.count() - 1)
+
+
+    @pyqtSlot()
+    def deleteBuild(self):
+        index = self.listBuilds.currentRow()
+        self.listBuilds.takeItem(index)
+        self.stackedBuilds.removeWidget(self.stackedBuilds.widget(index))
+
     @pyqtSlot('QEvent')
     def closeEvent(self, event):
-        print self.size()
         self.saveCurrentSettings()
         self.saveBuilds()
         event.accept()

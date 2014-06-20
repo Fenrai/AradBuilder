@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui\SkillBox.ui'
+# Form implementation generated from reading ui file '.\ui\SkillBox.ui'
 #
-# Created: Tue Jun 10 00:12:50 2014
+# Created: Thu Jun 19 16:09:56 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -78,14 +78,4 @@ class Ui_SkillBox(object):
         self.labelSkill.setText(_translate("SkillBox", "Skill:", None))
         self.labelLevel.setText(_translate("SkillBox", "Level:", None))
         self.labelCost.setText(_translate("SkillBox", "Cost:", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    SkillBox = QtGui.QGroupBox()
-    ui = Ui_SkillBox()
-    ui.setupUi(SkillBox)
-    SkillBox.show()
-    sys.exit(app.exec_())
 

@@ -30,7 +30,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="labelCharPicture">
+      <widget class="ClickableLabel" name="labelCharPicture">
        <property name="minimumSize">
         <size>
          <width>300</width>
@@ -658,8 +658,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>100</width>
-            <height>30</height>
+            <width>778</width>
+            <height>357</height>
            </rect>
           </property>
          </widget>
@@ -691,8 +691,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>100</width>
-            <height>30</height>
+            <width>778</width>
+            <height>357</height>
            </rect>
           </property>
          </widget>
@@ -724,8 +724,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>100</width>
-            <height>30</height>
+            <width>778</width>
+            <height>357</height>
            </rect>
           </property>
          </widget>
@@ -770,6 +770,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QLabel</extends>
+   <header>aradbuilder.clickablelabel</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
