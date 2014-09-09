@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Device Settings Backup Tool (DSBT)
-# Copyright (C) 2013 Stefan Rainow
+# Arad Builder
+# Copyright (C) 2014 Stefan Rainow
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
